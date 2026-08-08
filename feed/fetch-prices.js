@@ -19,6 +19,7 @@ const path = require("path");
 const APP_ID = process.env.EBAY_APP_ID;
 const CERT_ID = process.env.EBAY_CERT_ID;
 const MARKETPLACE = process.env.EBAY_MARKETPLACE || "EBAY_US";
+const CARD_ORIGIN = "https://palworldtcg.gg";
 const CARD_API = "https://palworldtcg.gg/api/v1/cards";
 const CATEGORY_ID = "183454";                          // CCG Individual Cards
 const MIN_LISTINGS = 3;                                // below this, publish nothing
@@ -74,6 +75,8 @@ async function getCardList() {
         ? String(c.card_number)
         : `${c.set_code}-${c.card_number}`;
 
+      // The API returns a site-relative path; resolve it against its own origin.
+      const rawImg = c.thumbnail_url || c.image_url;
       out.push({
         id: c.slug || code,
         code,
@@ -82,6 +85,7 @@ async function getCardList() {
         set: c.set_code,
         rarity: c.rarity,
         type: c.card_type,
+        img: rawImg ? new URL(rawImg, CARD_ORIGIN).href : null,
         query: `Palworld ${c.name} ${code}`
       });
     }
@@ -110,14 +114,16 @@ async function getToken() {
 }
 
 /**
- * Card codes read SETCODE-NNN with any parallel rarity appended:
- *   EBP01-001      base printing
- *   EBP01-001OSR   Over Super Rare parallel
- *   EBP01-001SSP   Super Special Parallel
- * A base printing and its parallels are different cards worth very
- * different money, so the suffix has to match exactly.
+ * Card codes read SETCODE-NNN, with a parallel rarity as a THIRD hyphenated
+ * part when the printing is a parallel:
+ *   BP01-001       base printing (its rarity may be C/U/R/RR — still a base)
+ *   BP01-001-OSR   Over Super Rare parallel
+ *   BP01-025-SSP   Super Special Parallel
+ * Sellers sometimes run the suffix on without the hyphen, so both are allowed.
+ * RR is deliberately NOT a suffix: it is a base rarity, and treating it as one
+ * would make a base listing that names its rarity fail to match its own card.
  */
-const CODE_RE = /\b(e?bp\d{2}|td\d{2}|pr)\s*-\s*(\d{1,3})\s*(sss|ssp|osr|tsr|tsp|sec|sr|sp|rr)?\b/i;
+const CODE_RE = /\b(e?bp\d{2}|td\d{2}|pr)\s*-\s*(\d{1,3})\s*(?:-\s*)?(sss|ssp|osr|sec|tsr|tsp|sr|sp)?\b/i;
 
 function parseCode(s) {
   const m = s.match(CODE_RE);
@@ -146,7 +152,7 @@ function titleMatches(title, card) {
   if (want && want.suffix) {
     return new RegExp(`\\b${want.suffix.toLowerCase()}\\b`).test(t);
   }
-  return !/\b(sss|ssp|osr|tsr|tsp|sec|sr|sp)\b/.test(t);
+  return !/\b(sss|ssp|osr|sec|tsr|tsp|sr|sp)\b/.test(t);
 }
 
 async function priceCard(token, card) {
@@ -231,6 +237,7 @@ async function priceCard(token, card) {
       num: card.code,
       rarity: card.rarity,
       type: card.type,
+      img: card.img,
       price: result.price,
       low: result.low,
       high: result.high,

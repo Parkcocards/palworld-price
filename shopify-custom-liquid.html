@@ -1,0 +1,499 @@
+<!--
+  PALWORLD CARD PRICE INDEX — Shopify Custom Liquid section
+  ---------------------------------------------------------
+  HOW TO USE
+  1. Shopify admin -> Online Store -> Pages -> Add page. Title: "Palworld Card Prices".
+  2. Save, then click "Customize" on that page's template.
+  3. Add section -> "Custom Liquid". Paste EVERYTHING in this file into the box. Save.
+  4. To go live with real data, set PRICES_URL below to your prices.json endpoint.
+     While PRICES_URL is null it renders generated sample data so you can test layout.
+
+  Expected prices.json shape:
+  { "updated": "2026-08-08T04:00:00Z",
+    "cards": [ { "name":"Chillet", "set":"BP01", "num":"EBP01-025SSP",
+                 "rarity":"SSP", "price":24.40, "d1":-3.2, "d3":1.1,
+                 "d7":11.4, "d30":-6.8 } ] }
+  rarity must be one of: C U R RR SR SP OSR SSP SSS TD TSR TSP PR
+  set must be one of:    BP01 TD01 TD02 PR
+-->
+
+<div id="pwc-root">
+  <div class="pwc-wrap">
+
+    <header class="pwc-head">
+      <div class="pwc-head-l">
+        <div class="pwc-live"><span class="pwc-dot"></span><span>Live market data</span></div>
+        <h1 class="pwc-h1">Palworld TCG<br>Card Price Index</h1>
+        <p class="pwc-lede">Median prices sourced from live eBay listings and refreshed every few hours. Search any card, watch the daily movers, and see what your binder is actually worth.</p>
+      </div>
+      <div class="pwc-head-r">
+        <div>UPDATED <b id="pwc-updated">—</b></div>
+        <div>CURRENCY <b>USD</b></div>
+        <div>SOURCE <b>eBay listings</b></div>
+      </div>
+    </header>
+
+    <section class="pwc-stats">
+      <div class="pwc-cell"><div class="pwc-lbl">Cards tracked</div><div class="pwc-big" id="pwc-stat-count">—</div></div>
+      <div class="pwc-cell"><div class="pwc-lbl">Median price</div><div class="pwc-big" id="pwc-stat-median">—</div></div>
+      <div class="pwc-cell"><div class="pwc-lbl">Index 24h</div><div class="pwc-big" id="pwc-stat-index">—</div></div>
+      <div class="pwc-cell"><div class="pwc-lbl">Sets covered</div><div class="pwc-big" id="pwc-stat-sets">—</div></div>
+    </section>
+
+    <section class="pwc-sec">
+      <div class="pwc-sechead">
+        <h2 class="pwc-h2">Most valuable today</h2>
+        <span class="pwc-mono pwc-dim">by median listing price</span>
+      </div>
+      <p class="pwc-sub">The ten highest-value cards in the index right now.</p>
+      <div class="pwc-grid2" id="pwc-valuable"></div>
+    </section>
+
+    <section class="pwc-sec">
+      <div class="pwc-sechead">
+        <h2 class="pwc-h2">Top movers</h2>
+        <div class="pwc-tfs" id="pwc-tfs">
+          <button data-tf="d1" class="pwc-tf pwc-on">24h</button>
+          <button data-tf="d3" class="pwc-tf">3d</button>
+          <button data-tf="d7" class="pwc-tf">7d</button>
+          <button data-tf="d30" class="pwc-tf">30d</button>
+        </div>
+      </div>
+      <p class="pwc-sub">Biggest percentage swings over the selected lookback.</p>
+      <div class="pwc-movers">
+        <div class="pwc-panel">
+          <div class="pwc-panelhead"><span class="pwc-up">&#9650;</span><span>Top gainers</span></div>
+          <div id="pwc-gainers"></div>
+        </div>
+        <div class="pwc-panel">
+          <div class="pwc-panelhead"><span class="pwc-down">&#9660;</span><span>Top losers</span></div>
+          <div id="pwc-losers"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pwc-sec">
+      <h2 class="pwc-h2">Card price database</h2>
+      <p class="pwc-sub">Search by card name, filter by set or rarity, sort any column.</p>
+      <div class="pwc-controls">
+        <input type="search" id="pwc-q" placeholder="Search cards…" class="pwc-input">
+        <select id="pwc-set" class="pwc-select"></select>
+        <select id="pwc-rarity" class="pwc-select"></select>
+      </div>
+      <div class="pwc-tablewrap">
+        <table class="pwc-table">
+          <thead><tr id="pwc-thead"></tr></thead>
+          <tbody id="pwc-tbody"></tbody>
+        </table>
+        <div class="pwc-empty" id="pwc-empty" hidden>No cards match that search.</div>
+        <div class="pwc-pager">
+          <span class="pwc-mono pwc-dim" id="pwc-pageinfo">—</span>
+          <span class="pwc-pagebtns">
+            <button id="pwc-prev" class="pwc-btn">Prev</button>
+            <button id="pwc-next" class="pwc-btn">Next</button>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="pwc-sec">
+      <h2 class="pwc-h2">How these prices are calculated</h2>
+      <p class="pwc-sub">Market research data, not financial advice.</p>
+      <div class="pwc-grid2 pwc-faq">
+        <div class="pwc-cell">
+          <h3 class="pwc-h3">Median, not average</h3>
+          <p class="pwc-p">Each card's price is the median of every current eBay listing for it. A median ignores one seller pricing at $2 and another at $2,000, so the number tracks what the card really trades at.</p>
+        </div>
+        <div class="pwc-cell">
+          <h3 class="pwc-h3">Refresh cadence</h3>
+          <p class="pwc-p">Listings are re-pulled roughly every four hours. Daily medians are stored, and the 24h / 7d / 30d columns compare today's median against the stored snapshot for that lookback.</p>
+        </div>
+        <div class="pwc-cell">
+          <h3 class="pwc-h3">Condition and grading</h3>
+          <p class="pwc-p">Prices reflect raw, near-mint singles. Graded slabs, sealed lots and bundle listings are filtered out before the median is taken, so a PSA 10 will sit well above the number shown here.</p>
+        </div>
+        <div class="pwc-cell">
+          <h3 class="pwc-h3">Coverage gaps</h3>
+          <p class="pwc-p">A card needs at least three live listings to get a price. Anything thinner is held back rather than published, which is why very new promos can take a few days to appear.</p>
+        </div>
+      </div>
+      <p class="pwc-fine">Not affiliated with or endorsed by Pocketpair or Bushiroad. Card names and set data are used for identification only, supplied by palworldtcg.gg. Prices are derived from public eBay listings.</p>
+    </section>
+
+  </div>
+</div>
+
+<style>
+#pwc-root{--bg:#0d0f13;--panel:#10131a;--line:#1e222b;--line2:#171b23;--txt:#e8eaef;--dim:#9aa3b4;--dim2:#7b8497;--dim3:#6c7484;--up:#4ade80;--down:#f87171;--acc:#7fd6e8;
+  background:var(--bg);color:var(--txt);font-family:'IBM Plex Sans',ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+#pwc-root *{box-sizing:border-box}
+#pwc-root .pwc-wrap{max-width:1180px;margin:0 auto;padding:0 24px 96px}
+#pwc-root .pwc-mono{font-family:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace}
+#pwc-root .pwc-dim{color:var(--dim3)}
+
+#pwc-root .pwc-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;padding:56px 0 32px;border-bottom:1px solid var(--line)}
+#pwc-root .pwc-head-l{max-width:640px}
+#pwc-root .pwc-live{display:flex;align-items:center;gap:10px;margin-bottom:18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim2)}
+#pwc-root .pwc-dot{width:7px;height:7px;border-radius:50%;background:var(--up);box-shadow:0 0 10px var(--up)}
+#pwc-root .pwc-h1{font-family:'Space Grotesk',ui-sans-serif,system-ui,sans-serif;font-size:52px;line-height:1.02;font-weight:700;margin:0 0 16px;letter-spacing:-.02em;color:var(--txt)}
+#pwc-root .pwc-lede{font-size:17px;line-height:1.6;color:var(--dim);margin:0;max-width:52ch;text-wrap:pretty}
+#pwc-root .pwc-head-r{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim3);line-height:1.9;text-align:right}
+#pwc-root .pwc-head-r b{color:var(--txt);font-weight:400}
+
+#pwc-root .pwc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin:32px 0 56px}
+#pwc-root .pwc-cell{background:var(--panel);padding:22px 24px}
+#pwc-root .pwc-lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim3);margin-bottom:10px}
+#pwc-root .pwc-big{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:600;color:var(--txt)}
+
+#pwc-root .pwc-sec{margin-bottom:64px}
+#pwc-root .pwc-sechead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:6px}
+#pwc-root .pwc-h2{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em;color:var(--txt)}
+#pwc-root .pwc-sechead .pwc-h2{margin:0}
+#pwc-root .pwc-sub{color:var(--dim2);font-size:14px;margin:0 0 22px}
+#pwc-root .pwc-h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin:0 0 10px;color:var(--txt)}
+#pwc-root .pwc-p{color:var(--dim);font-size:14px;line-height:1.65;margin:0;text-wrap:pretty}
+#pwc-root .pwc-fine{color:#8b93a3;font-size:12px;line-height:1.7;margin:22px 0 0;font-family:'IBM Plex Mono',monospace}
+
+#pwc-root .pwc-grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+#pwc-root .pwc-faq .pwc-cell{padding:24px 26px}
+#pwc-root .pwc-vrow{background:var(--panel);display:flex;align-items:center;gap:14px;padding:14px 18px}
+#pwc-root .pwc-rank{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#565e6e;width:22px}
+#pwc-root .pwc-sw{width:34px;height:46px;border-radius:3px;flex-shrink:0}
+#pwc-root .pwc-vmid{flex:1;min-width:0}
+#pwc-root .pwc-vname{display:block;font-weight:500;font-size:15px;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pwc-root .pwc-vmeta{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim3);margin-top:3px}
+#pwc-root .pwc-vright{text-align:right}
+#pwc-root .pwc-vprice{display:block;font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:500}
+#pwc-root .pwc-vchg{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;margin-top:3px}
+
+#pwc-root .pwc-tfs{display:flex;gap:4px}
+#pwc-root .pwc-tf{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 13px;border-radius:3px;cursor:pointer;border:1px solid #232833;background:var(--panel);color:#8f97a8}
+#pwc-root .pwc-tf.pwc-on{background:#17323a;border-color:#3d7f8f;color:var(--acc)}
+#pwc-root .pwc-movers{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+#pwc-root .pwc-panel{border:1px solid var(--line);border-radius:4px;overflow:hidden}
+#pwc-root .pwc-panelhead{padding:13px 18px;background:var(--panel);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+#pwc-root .pwc-up{color:var(--up);font-size:13px}
+#pwc-root .pwc-down{color:var(--down);font-size:13px}
+#pwc-root .pwc-mrow{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--line2)}
+#pwc-root .pwc-mname{flex:1;min-width:0;font-size:14px;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#pwc-root .pwc-mcode{display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim3);margin-top:2px}
+#pwc-root .pwc-mprice{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8f97a8}
+#pwc-root .pwc-mchg{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;width:66px;text-align:right}
+
+#pwc-root .pwc-controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+#pwc-root .pwc-input{flex:1;min-width:240px;background:var(--panel);border:1px solid #232833;border-radius:3px;color:var(--txt);padding:11px 14px;font-size:14px;outline:none;font-family:inherit}
+#pwc-root .pwc-select{background:var(--panel);border:1px solid #232833;border-radius:3px;color:var(--txt);padding:11px 14px;font-size:14px;outline:none;cursor:pointer;font-family:inherit}
+#pwc-root .pwc-input:focus,#pwc-root .pwc-select:focus{border-color:#3d7f8f}
+
+#pwc-root .pwc-tablewrap{border:1px solid var(--line);border-radius:4px;overflow:hidden}
+#pwc-root .pwc-table{width:100%;font-size:14px;border-collapse:collapse;color:var(--txt);background:transparent}
+#pwc-root .pwc-table th{padding:13px 16px;background:var(--panel);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim2);font-weight:500;cursor:pointer;border-bottom:1px solid var(--line);white-space:nowrap;user-select:none;text-align:left}
+#pwc-root .pwc-table th:hover{color:var(--txt)}
+#pwc-root .pwc-table th.pwc-r,#pwc-root .pwc-table td.pwc-r{text-align:right}
+#pwc-root .pwc-table td{padding:12px 16px;border-bottom:1px solid var(--line2);color:var(--txt);background:transparent}
+#pwc-root .pwc-money{color:var(--txt)}
+#pwc-root .pwc-table tr:hover td{background:#12151c}
+#pwc-root .pwc-num{font-family:'IBM Plex Mono',monospace;color:#565e6e;font-size:12px;white-space:nowrap}
+#pwc-root .pwc-cardcell{display:flex;align-items:center;gap:12px}
+#pwc-root .pwc-sw-sm{width:24px;height:33px;border-radius:2px;flex-shrink:0}
+#pwc-root .pwc-chip{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 8px;border-radius:2px;white-space:nowrap;border:1px solid}
+#pwc-root .pwc-money{font-family:'IBM Plex Mono',monospace;font-weight:500}
+#pwc-root .pwc-pct{font-family:'IBM Plex Mono',monospace}
+#pwc-root .pwc-empty{padding:48px 16px;text-align:center;color:var(--dim3);font-size:14px}
+#pwc-root .pwc-pager{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;background:var(--panel);border-top:1px solid var(--line)}
+#pwc-root .pwc-pagebtns{display:flex;gap:6px}
+#pwc-root .pwc-btn{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:7px 14px;border-radius:3px;border:1px solid #232833;background:#151922;color:#cfd5e0;cursor:pointer}
+#pwc-root .pwc-btn:hover{border-color:#3d7f8f}
+
+@media (max-width:860px){
+  #pwc-root .pwc-h1{font-size:36px}
+  #pwc-root .pwc-head-r{text-align:left}
+  #pwc-root .pwc-stats{grid-template-columns:repeat(2,1fr)}
+  #pwc-root .pwc-grid2,#pwc-root .pwc-movers{grid-template-columns:1fr}
+  #pwc-root .pwc-tablewrap{overflow-x:auto}
+  #pwc-root .pwc-table{min-width:760px}
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script>
+(function () {
+  /* ====== SET THIS when your feed is live. Leave null to preview sample data. ====== */
+  var PRICES_URL = null; // e.g. "https://your-worker.workers.dev/prices.json"
+  var PER_PAGE = 15;
+  /* ================================================================================ */
+
+  var RARITIES = [
+    { name: "C",   label: "Common",              mult: 1,   color: "#8f97a8", border: "#2b313d" },
+    { name: "U",   label: "Uncommon",            mult: 1.8, color: "#7fd6e8", border: "#26505c" },
+    { name: "R",   label: "Rare",                mult: 4,   color: "#8fb8ff", border: "#2a3f66" },
+    { name: "RR",  label: "Double Rare",         mult: 9,   color: "#c8a2ff", border: "#3d2f5e" },
+    { name: "SR",  label: "Super Rare",          mult: 18,  color: "#ffcf7a", border: "#5c4423" },
+    { name: "SP",  label: "Special",             mult: 26,  color: "#f5a7d0", border: "#5e2c48" },
+    { name: "OSR", label: "Over Super Rare",     mult: 48,  color: "#ff9ec4", border: "#5e2c42" },
+    { name: "SSP", label: "Super Special Parallel", mult: 95, color: "#ff8f6b", border: "#5e3324" },
+    { name: "SSS", label: "Ultra Secret Gold",   mult: 240, color: "#e8c34a", border: "#5c4a12" },
+    { name: "TD",  label: "Trial Deck",          mult: 1.2, color: "#9aa3b4", border: "#2b313d" },
+    { name: "TSR", label: "Trial Super Rare",    mult: 12,  color: "#a5d6a7", border: "#2c4a2e" },
+    { name: "TSP", label: "Trial Special",       mult: 22,  color: "#8fd6b0", border: "#264a3a" },
+    { name: "PR",  label: "Promo",               mult: 6,   color: "#c4b5fd", border: "#3a3266" }
+  ];
+  var RMAP = {}; RARITIES.forEach(function (r) { RMAP[r.name] = r; });
+  var SETS = ["BP01", "TD01", "TD02", "PR"];
+  var PALS = ["Lamball","Cattiva","Chikipi","Lifmunk","Foxparks","Fuack","Sparkit","Tanzee","Rooby","Pengullet","Penking","Jolthog","Gumoss","Vixy","Hoocrates","Teafant","Depresso","Cremis","Daedream","Rushoar","Nox","Fuddler","Killamari","Mau","Celaray","Direhowl","Tocotoco","Flopie","Mozzarina","Bristla","Gobfin","Hangyu","Mossanda","Woolipop","Caprity","Melpaca","Eikthyrdeer","Nitewing","Ribbuny","Incineram","Cinnamoth","Arsox","Dumud","Cawgnito","Leezpunk","Loupmoon","Galeclaw","Robinquill","Gorirat","Beegarde","Elizabee","Grintale","Swee","Sweepa","Chillet","Univolt","Foxcicle","Pyrin","Reindrix","Rayhound","Kitsun","Dazzi","Lunaris","Dinossom","Surfent","Maraith","Digtoise","Tombat","Lovander","Flambelle","Vanwyrm","Bushi","Beakon","Ragnahawk","Katress","Wixen","Verdash","Vaelet","Sibelyx","Elphidran","Kelpsea","Astegon","Menasting","Anubis","Jormuntide","Suzaku","Grizzbolt","Lyleen","Faleris","Orserk","Shadowbeak","Paladius","Necromus","Frostallion","Jetragon","Blazamut","Relaxaurus","Warsect","Quivern","Nitemary"];
+  var SET_PREFIX = { BP01: "EBP01", TD01: "TD01", TD02: "TD02", PR: "PR" };
+  var SET_SIZE = { BP01: 100, TD01: 24, TD02: 24, PR: 12 };
+  /* Rough real-world pull distribution: commons dominate, parallels are scarce.
+     BASE = printings that carry no code suffix. PARA = the parallel printings. */
+  var BASE_W = {
+    BP01: { C: 52, U: 24, R: 17, RR: 7 },
+    TD01: { TD: 100 },
+    TD02: { TD: 100 },
+    PR:   { PR: 100 }
+  };
+  var PARA_W = {
+    BP01: { SR: 50, SP: 25, OSR: 17, SSP: 8 },
+    TD01: { TSR: 70, TSP: 30 },
+    TD02: { TSR: 70, TSP: 30 },
+    PR:   { PR: 100 }
+  };
+  /* Rarities that are a parallel printing — the code carries the suffix. */
+  var PARALLEL = { SR: 1, SP: 1, OSR: 1, SSP: 1, SSS: 1, TSR: 1, TSP: 1 };
+
+  function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function rand(seed) { var h = 2166136261 ^ seed; h = Math.imul(h ^ (h >>> 15), 2246822507); h = Math.imul(h ^ (h >>> 13), 3266489909); return ((h ^ (h >>> 16)) >>> 0) / 4294967296; }
+
+  function pickWeighted(table, roll) {
+    var total = 0, k;
+    for (k in table) total += table[k];
+    var acc = 0, target = roll * total;
+    for (k in table) { acc += table[k]; if (target <= acc) return k; }
+    return k;
+  }
+
+  function sampleData() {
+    var out = [];
+    var nextNum = { BP01: 0, TD01: 0, TD02: 0, PR: 0 };
+    PALS.forEach(function (name) {
+      var h = hash(name);
+      var set = pickWeighted({ BP01: 78, TD01: 8, TD02: 8, PR: 6 }, rand(h + 3));
+      // Numbers are allocated sequentially so a code always identifies one card.
+      if (nextNum[set] >= SET_SIZE[set]) {
+        set = ["BP01", "TD01", "TD02", "PR"].filter(function (s) { return nextNum[s] < SET_SIZE[s]; })[0];
+        if (!set) return;
+      }
+      var num = ++nextNum[set];
+      var code = SET_PREFIX[set] + "-" + String(num).padStart(3, "0");
+      // Every card gets its base printing; some also got a parallel.
+      var hasParallel = set !== "PR" && rand(h) > 0.55;
+      var printings = [{ rarity: pickWeighted(BASE_W[set], rand(h + 11)), suffix: "" }];
+      if (hasParallel) {
+        var pr = pickWeighted(PARA_W[set], rand(h + 17));
+        printings.push({ rarity: pr, suffix: pr });
+      }
+
+      printings.forEach(function (p, v) {
+        var s = h + v * 7919;
+        var r = RMAP[p.rarity];
+        out.push({
+          name: name,
+          set: set,
+          rarity: p.rarity,
+          num: code + p.suffix,
+          price: Math.round((0.6 + rand(s + 31) * 2.4) * r.mult * 100) / 100,
+          d1: (rand(s + 61) - 0.48) * 14,
+          d3: (rand(s + 71) - 0.48) * 22,
+          d7: (rand(s + 83) - 0.47) * 30,
+          d30: (rand(s + 97) - 0.45) * 58
+        });
+      });
+    });
+
+    // SSS is the set's single hidden gold chase card — exactly one, ever.
+    var chase = out.filter(function (c) { return c.set === "BP01" && c.rarity === "SSP"; })[0];
+    if (chase) {
+      chase.rarity = "SSS";
+      chase.num = chase.num.replace(/SSP$/, "SSS");
+      chase.price = Math.round(chase.price / RMAP.SSP.mult * RMAP.SSS.mult * 100) / 100;
+    }
+
+    return { updated: new Date().toISOString(), cards: out };
+  }
+
+  function decorate(cards) {
+    return cards.map(function (c) {
+      var hue = hash(c.name + c.num) % 360;
+      var r = RMAP[c.rarity] || RARITIES[0];
+      c.swatch = "linear-gradient(150deg, oklch(0.52 0.11 " + hue + "), oklch(0.28 0.07 " + ((hue + 48) % 360) + "))";
+      c.rarityColor = r.color; c.rarityBorder = r.border;
+      ["d1","d3","d7","d30"].forEach(function (k) { if (typeof c[k] !== "number") c[k] = 0; });
+      return c;
+    });
+  }
+
+  var money = function (n) { return "$" + Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+  var pct = function (n) { return (n >= 0 ? "+" : "") + Number(n).toFixed(1) + "%"; };
+  var col = function (n) { return n > 0.05 ? "#4ade80" : n < -0.05 ? "#f87171" : "#7b8497"; };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (m) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]; }); };
+  var $ = function (id) { return document.getElementById(id); };
+
+  var ALL = [], st = { q: "", set: "All sets", rarity: "All rarities", sort: "price", dir: -1, page: 0, tf: "d1" };
+
+  var COLS = [
+    { key: "num",    label: "#",      r: false, asc: true },
+    { key: "name",   label: "Card",   r: false, asc: true },
+    { key: "set",    label: "Set",    r: false, asc: true },
+    { key: "rarity", label: "Rarity", r: false, asc: true },
+    { key: "price",  label: "Price",  r: true },
+    { key: "d1",     label: "24h",    r: true },
+    { key: "d7",     label: "7d",     r: true },
+    { key: "d30",    label: "30d",    r: true }
+  ];
+
+  function filtered() {
+    var q = st.q.trim().toLowerCase();
+    var list = ALL.filter(function (c) {
+      return (!q || c.name.toLowerCase().indexOf(q) > -1)
+        && (st.set === "All sets" || c.set === st.set)
+        && (st.rarity === "All rarities" || c.rarity === st.rarity);
+    });
+    var k = st.sort;
+    return list.sort(function (a, b) {
+      var av = a[k], bv = b[k];
+      return (typeof av === "string" ? av.localeCompare(bv) : av - bv) * st.dir;
+    });
+  }
+
+  function renderTable() {
+    var list = filtered();
+    var pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+    if (st.page > pages - 1) st.page = pages - 1;
+    var slice = list.slice(st.page * PER_PAGE, st.page * PER_PAGE + PER_PAGE);
+
+    $("pwc-thead").innerHTML = COLS.map(function (c) {
+      var arrow = st.sort === c.key ? (st.dir === -1 ? " \u2193" : " \u2191") : "";
+      return '<th class="' + (c.r ? "pwc-r" : "") + '" data-key="' + c.key + '">' + c.label + arrow + "</th>";
+    }).join("");
+
+    $("pwc-tbody").innerHTML = slice.map(function (c) {
+      return '<tr>'
+        + '<td class="pwc-num">' + esc(c.num) + '</td>'
+        + '<td><span class="pwc-cardcell"><span class="pwc-sw-sm" style="background:' + c.swatch + '"></span><span style="font-weight:500">' + esc(c.name) + '</span></span></td>'
+        + '<td style="color:#9aa3b4">' + esc(c.set) + '</td>'
+        + '<td><span class="pwc-chip" title="' + esc((RMAP[c.rarity] || {}).label || c.rarity) + '" style="color:' + c.rarityColor + ';border-color:' + c.rarityBorder + '">' + esc(c.rarity) + '</span></td>'
+        + '<td class="pwc-r pwc-money">' + money(c.price) + '</td>'
+        + '<td class="pwc-r pwc-pct" style="color:' + col(c.d1) + '">' + pct(c.d1) + '</td>'
+        + '<td class="pwc-r pwc-pct" style="color:' + col(c.d7) + '">' + pct(c.d7) + '</td>'
+        + '<td class="pwc-r pwc-pct" style="color:' + col(c.d30) + '">' + pct(c.d30) + '</td>'
+        + '</tr>';
+    }).join("");
+
+    $("pwc-empty").hidden = list.length !== 0;
+    $("pwc-pageinfo").textContent = list.length
+      ? (st.page * PER_PAGE + 1) + "\u2013" + Math.min(list.length, st.page * PER_PAGE + PER_PAGE) + " of " + list.length.toLocaleString() + " cards"
+      : "0 cards";
+
+    Array.prototype.forEach.call($("pwc-thead").children, function (th) {
+      th.addEventListener("click", function () {
+        var key = th.getAttribute("data-key");
+        var c = COLS.filter(function (x) { return x.key === key; })[0];
+        st.dir = st.sort === key ? -st.dir : (c.asc ? 1 : -1);
+        st.sort = key; st.page = 0; renderTable();
+      });
+    });
+  }
+
+  function renderMovers() {
+    var tf = st.tf;
+    var sorted = ALL.slice().sort(function (a, b) { return b[tf] - a[tf]; });
+    function rows(arr, color) {
+      return arr.map(function (c) {
+        var r = RMAP[c.rarity] || {};
+        return '<div class="pwc-mrow"><span class="pwc-mname">' + esc(c.name)
+          + '<span class="pwc-mcode">' + esc(c.num) + '</span></span>'
+          + '<span class="pwc-chip" title="' + esc(r.label || c.rarity) + '" style="color:' + (r.color || "#8f97a8") + ';border-color:' + (r.border || "#2b313d") + '">' + esc(c.rarity) + '</span>'
+          + '<span class="pwc-mprice">' + money(c.price) + '</span>'
+          + '<span class="pwc-mchg" style="color:' + color + '">' + pct(c[tf]) + '</span></div>';
+      }).join("");
+    }
+    $("pwc-gainers").innerHTML = rows(sorted.slice(0, 6), "#4ade80");
+    $("pwc-losers").innerHTML = rows(sorted.slice(-6).reverse(), "#f87171");
+  }
+
+  var SETS_LABEL = { BP01: "Dawn of Palpagos", TD01: "Trial Deck Red・Blue", TD02: "Trial Deck Green・Purple", PR: "Promo" };
+
+  function renderTop() {
+    var top = ALL.slice().sort(function (a, b) { return b.price - a.price; }).slice(0, 10);
+    $("pwc-valuable").innerHTML = top.map(function (c, i) {
+      return '<div class="pwc-vrow">'
+        + '<span class="pwc-rank">' + String(i + 1).padStart(2, "0") + '</span>'
+        + '<span class="pwc-sw" style="background:' + c.swatch + '"></span>'
+        + '<span class="pwc-vmid"><span class="pwc-vname">' + esc(c.name) + '</span>'
+        + '<span class="pwc-vmeta">' + esc(SETS_LABEL[c.set] || c.set) + " \u00b7 " + esc((RMAP[c.rarity] || {}).label || c.rarity) + " \u00b7 " + esc(c.num) + '</span></span>'
+        + '<span class="pwc-vright"><span class="pwc-vprice">' + money(c.price) + '</span>'
+        + '<span class="pwc-vchg" style="color:' + col(c.d1) + '">' + pct(c.d1) + '</span></span>'
+        + '</div>';
+    }).join("");
+  }
+
+  function renderStats(updated) {
+    var prices = ALL.map(function (c) { return c.price; }).sort(function (a, b) { return a - b; });
+    var idx = ALL.reduce(function (s, c) { return s + c.d1; }, 0) / (ALL.length || 1);
+    $("pwc-stat-count").textContent = ALL.length.toLocaleString();
+    $("pwc-stat-median").textContent = money(prices[Math.floor(prices.length / 2)] || 0);
+    $("pwc-stat-index").textContent = pct(idx);
+    $("pwc-stat-index").style.color = col(idx);
+    $("pwc-stat-sets").textContent = String(new Set(ALL.map(function (c) { return c.set; })).size);
+    $("pwc-updated").textContent = new Date(updated).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  }
+
+  function fillSelects() {
+    var sets = ["All sets"].concat(Array.from(new Set(ALL.map(function (c) { return c.set; }))).sort());
+    var rars = ["All rarities"].concat(Array.from(new Set(ALL.map(function (c) { return c.rarity; })))
+      .sort(function (a, b) {
+        var oa = RARITIES.findIndex(function (r) { return r.name === a; });
+        var ob = RARITIES.findIndex(function (r) { return r.name === b; });
+        return oa - ob;
+      }));
+    $("pwc-set").innerHTML = sets.map(function (s) { return '<option>' + esc(s) + '</option>'; }).join("");
+    $("pwc-rarity").innerHTML = rars.map(function (s) {
+      var r = RMAP[s];
+      return '<option value="' + esc(s) + '">' + esc(r ? s + " — " + r.label : s) + '</option>';
+    }).join("");
+  }
+
+  function wire() {
+    $("pwc-q").addEventListener("input", function (e) { st.q = e.target.value; st.page = 0; renderTable(); });
+    $("pwc-set").addEventListener("change", function (e) { st.set = e.target.value; st.page = 0; renderTable(); });
+    $("pwc-rarity").addEventListener("change", function (e) { st.rarity = e.target.value; st.page = 0; renderTable(); });
+    $("pwc-prev").addEventListener("click", function () { if (st.page > 0) { st.page--; renderTable(); } });
+    $("pwc-next").addEventListener("click", function () { st.page++; renderTable(); });
+    Array.prototype.forEach.call($("pwc-tfs").children, function (b) {
+      b.addEventListener("click", function () {
+        Array.prototype.forEach.call($("pwc-tfs").children, function (x) { x.classList.remove("pwc-on"); });
+        b.classList.add("pwc-on");
+        st.tf = b.getAttribute("data-tf");
+        renderMovers();
+      });
+    });
+  }
+
+  function boot(data) {
+    ALL = decorate(data.cards || []);
+    fillSelects(); renderStats(data.updated || Date.now()); renderTop(); renderMovers(); renderTable(); wire();
+  }
+
+  function start() {
+    if (!PRICES_URL) return boot(sampleData());
+    fetch(PRICES_URL, { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(boot)
+      .catch(function (e) { console.error("[pwc] price feed failed, using sample data", e); boot(sampleData()); });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+  else start();
+})();
+</script>

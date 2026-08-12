@@ -37,12 +37,18 @@ const read = (f, fallback) => {
 const write = (f, obj) => fs.writeFileSync(path.join(DIR, f), JSON.stringify(obj, null, 2));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+/* Codes merged in from extra-cards.json, logged individually so a supplemental
+   card that finds no listings is visible in the run output. */
+const SUPPLEMENTAL = new Set();
+
 if (!APP_ID || !CERT_ID) {
   console.error("Missing EBAY_APP_ID / EBAY_CERT_ID environment variables.");
   process.exit(1);
 }
 
-/* Words that mean the listing isn't a single raw card */
+/* Words that mean the listing isn't a single raw card. Short entries are
+   matched as whole words — as bare substrings, "tin" hits "listing" and "case"
+   hits "showcase", silently discarding good listings. */
 const BAD_WORDS = [
   "psa", "bgs", "cgc", "sgc", "graded", "slab",
   "lot", "bundle", "playset", "set of", "x4", "x10",
@@ -51,6 +57,11 @@ const BAD_WORDS = [
   "proxy", "custom", "fan made", "fan-made", "orica", "reprint",
   "sleeve", "binder", "toploader", "playmat"
 ];
+const BAD_WORD_BOUNDED = new RegExp(
+  "\\b(?:" + BAD_WORDS.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")\\b",
+  "i"
+);
+const hasBadWord = t => BAD_WORD_BOUNDED.test(t);
 
 const median = arr => {
   const s = [...arr].sort((a, b) => a - b);
@@ -102,9 +113,11 @@ async function getCardList() {
   /* Cards the API does not carry yet. Its database currently covers only BP01,
      TD01 and TD02 — the ESOUL gold Soul cards are absent entirely, which is why
      they never appeared in the feed no matter how the code matching changed.
-     Anything listed in extra-cards.json is merged in and priced identically. */
-  const extra = read("extra-cards.json", []);
+     Both filenames are accepted: GitHub's "Create new file" does not add the
+     .json extension, so the file is easily saved as plain "extra-cards". */
+  const extra = read("extra-cards.json", null) || read("extra-cards", []);
   const known = new Set(out.map(c => c.code.toUpperCase()));
+  let merged = 0;
   for (const e of extra) {
     if (!e.code || known.has(e.code.toUpperCase())) continue;
     out.push({
@@ -118,8 +131,11 @@ async function getCardList() {
       img: e.img || null
     });
     known.add(e.code.toUpperCase());
+    SUPPLEMENTAL.add(e.code.toUpperCase());
+    merged++;
   }
-  if (extra.length) console.log(`${extra.length} supplemental card(s) merged from extra-cards.json.`);
+  if (merged) console.log(`${merged} supplemental card(s) merged: ${[...SUPPLEMENTAL].join(", ")}`);
+  else console.warn("No supplemental cards merged — is extra-cards.json present and valid JSON?");
 
   return out;
 }
@@ -175,22 +191,19 @@ function parseCode(s) {
   return parseCodes(s)[0] || null;
 }
 
-/* Parallel rarity abbreviations, matched ANYWHERE in a title. The card code
-   parser only reads a suffix that follows the number, so "Chillet SSP BP01-025"
-   parses as a bare base code — which is exactly how $650 parallels ended up
-   pricing the $12 base card. RR is absent on purpose: it is a base rarity, and
-   a base listing that names its own rarity must still match itself. */
-const PARALLEL_TOKEN = /\b(sss|ssp|osr|sec|tsr|tsp|sr|sp)\b/i;
-
-/* Parallel names sellers spell out instead of abbreviating. A base printing
-   whose title carries any of these is really a parallel listing, and letting
-   one through hands a $10 base card a $450 parallel price. */
+/* Parallel names sellers spell out instead of abbreviating. Applied only to
+   genuinely base printings — a card whose own rarity IS a parallel naturally
+   says so in its title. */
 const SPELLED_PARALLEL = /(super special|over super|secret rare|ultra secret|gold card|parallel|full art|alt art|alternate art|holo foil)/i;
+
+/* Rarities that are plain base printings. Anything else IS a parallel/special,
+   so parallel wording in its title describes the card itself, not a mismatch. */
+const BASE_RARITIES = ["", "C", "U", "R", "RR", "TD", "PR"];
 
 function titleMatches(title, card) {
   const t = title.toLowerCase();
   if (!t.includes("palworld")) return false;
-  if (BAD_WORDS.some(w => t.includes(w))) return false;
+  if (hasBadWord(t)) return false;
 
   const key = card.shortName.toLowerCase().replace(/[^a-z ]/g, "").split(" ")[0];
   if (key && !t.includes(key)) return false;
@@ -207,18 +220,21 @@ function titleMatches(title, card) {
   if (!found.length) return false;
   if (!found.some(g => g.set === want.set && g.num === want.num && g.suffix === want.suffix)) return false;
 
-  // Base printing (no suffix) must not name a parallel anywhere in the title,
-  // in abbreviated or spelled-out form.
-  if (!want.suffix && (PARALLEL_TOKEN.test(t) || SPELLED_PARALLEL.test(t))) return false;
+  /* The card's own rarity, whether it comes from the code suffix (BP01-025-SSP)
+     or from the card record (ESOUL-002, whose SSS is not in the code at all).
+     Without this, the Gold Soul card rejected 100% of its own listings: every
+     one says "SSS", and the base-printing guard treated that as a mismatch. */
+  const mine = (want.suffix || card.rarity || "").toLowerCase();
+  const foreign = SUFFIXES.split("|").filter(s => s !== mine);
 
-  // A parallel must not name a DIFFERENT parallel's suffix.
-  if (want.suffix) {
-    const mine = want.suffix.toLowerCase();
-    const others = SUFFIXES.split("|").filter(s => s !== mine);
-    // "SSP" contains "sp" as a substring, so compare whole tokens only.
-    const tokens = t.match(/\b[a-z]{2,3}\b/g) || [];
-    if (tokens.some(tok => others.includes(tok))) return false;
-  }
+  // Reject a title naming a DIFFERENT printing's rarity. Whole tokens only,
+  // since "SSP" contains "sp" as a substring.
+  const tokens = t.match(/\b[a-z]{2,3}\b/g) || [];
+  if (tokens.some(tok => foreign.includes(tok))) return false;
+
+  // Spelled-out parallel wording only disqualifies genuinely base printings.
+  const isBase = BASE_RARITIES.includes(String(card.rarity || "").toUpperCase());
+  if (isBase && SPELLED_PARALLEL.test(t)) return false;
 
   return true;
 }
@@ -342,6 +358,9 @@ async function priceCard(token, card) {
          make tomorrow compare a copy against its own copy — permanently 0%. */
       history[today][card.id] = result.price;
       priced++;
+      if (SUPPLEMENTAL.has(card.code.toUpperCase())) {
+        console.log(`  ${card.code} priced at $${result.price} from ${result.count} listing(s).`);
+      }
     } else {
       const prev = prevById[card.id];
       staleDays = prev ? (prev.staleDays || 0) + 1 : 0;
@@ -353,6 +372,9 @@ async function priceCard(token, card) {
         carried++;
       } else {
         if (prev) dropped++; else skipped++;
+        if (SUPPLEMENTAL.has(card.code.toUpperCase())) {
+          console.warn(`  ${card.code}: no matching listings found.`);
+        }
         await sleep(REQUEST_DELAY_MS);
         continue;
       }

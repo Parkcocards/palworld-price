@@ -141,6 +141,11 @@ function parseCode(s) {
   };
 }
 
+/* Parallel names sellers spell out instead of abbreviating. A base printing
+   whose title carries any of these is really a parallel listing, and letting
+   one through hands a $10 base card a $450 parallel price. */
+const SPELLED_PARALLEL = /(super special|over super|secret rare|ultra secret|gold card|parallel|full art|alt art|alternate art)/i;
+
 function titleMatches(title, card) {
   const t = title.toLowerCase();
   if (!t.includes("palworld")) return false;
@@ -152,13 +157,17 @@ function titleMatches(title, card) {
   const want = parseCode(card.code);
   const got = parseCode(title);
 
-  if (got && want) {
-    return got.set === want.set && got.num === want.num && got.suffix === want.suffix;
-  }
-  if (want && want.suffix) {
-    return new RegExp(`\\b${want.suffix.toLowerCase()}\\b`).test(t);
-  }
-  return !/\b(sss|ssp|osr|sec|tsr|tsp|sr|sp)\b/.test(t);
+  /* Require an exact card code in the listing title. Inferring identity from
+     the Pal name alone is what let parallels contaminate base cards: one Pal
+     has up to four printings spanning $2 to $700, and the name is identical
+     across all of them. Fewer listings, but the ones we keep are the card. */
+  if (!want || !got) return false;
+  if (got.set !== want.set || got.num !== want.num || got.suffix !== want.suffix) return false;
+
+  // Base printing (no suffix) must not be a spelled-out parallel listing.
+  if (!want.suffix && SPELLED_PARALLEL.test(t)) return false;
+
+  return true;
 }
 
 async function search(token, q) {
@@ -190,7 +199,7 @@ async function priceCard(token, card) {
   collect(await search(token, `Palworld ${card.shortName} ${card.code}`));
   if (seen.size < CONFIDENT_LISTINGS) {
     await sleep(REQUEST_DELAY_MS);
-    collect(await search(token, `Palworld TCG ${card.shortName}`));
+    collect(await search(token, `Palworld ${card.code}`));
   }
 
   const matched = [...seen.values()].filter(i => i.title && i.price && titleMatches(i.title, card));
@@ -245,6 +254,10 @@ async function priceCard(token, card) {
   const today = new Date().toISOString().slice(0, 10);
   history[today] = history[today] || {};
 
+  /* A price that moves more than this in a day is a matching artefact, not a
+     market move — suppress the figure rather than publishing +2925%. */
+  const MAX_PLAUSIBLE_MOVE = 200;
+
   /* Look back to the NEAREST recorded day within a window, not an exact date.
      If the job misses a day (GitHub cron is best-effort), an exact-date lookup
      finds nothing and every change column silently reads 0.00%. */
@@ -255,8 +268,11 @@ async function priceCard(token, card) {
     }
     return null;
   };
-  const pctChange = (now, then) =>
-    then && then > 0 ? Math.round(((now - then) / then) * 1000) / 10 : null;
+  const pctChange = (now, then) => {
+    if (!then || then <= 0) return null;
+    const pct = Math.round(((now - then) / then) * 1000) / 10;
+    return Math.abs(pct) > MAX_PLAUSIBLE_MOVE ? null : pct;
+  };
 
   const out = [];
   let priced = 0, carried = 0, dropped = 0, skipped = 0;

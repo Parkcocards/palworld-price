@@ -99,6 +99,28 @@ async function getCardList() {
     await sleep(150);
   } while (page <= totalPages);
 
+  /* Cards the API does not carry yet. Its database currently covers only BP01,
+     TD01 and TD02 — the ESOUL gold Soul cards are absent entirely, which is why
+     they never appeared in the feed no matter how the code matching changed.
+     Anything listed in extra-cards.json is merged in and priced identically. */
+  const extra = read("extra-cards.json", []);
+  const known = new Set(out.map(c => c.code.toUpperCase()));
+  for (const e of extra) {
+    if (!e.code || known.has(e.code.toUpperCase())) continue;
+    out.push({
+      id: e.id || e.code.toLowerCase(),
+      code: e.code,
+      name: e.name || e.code,
+      shortName: (e.shortName || String(e.name || "").split(/[–—-]/)[0]).trim(),
+      set: e.set || e.code.split("-")[0],
+      rarity: e.rarity || "",
+      type: e.type || "",
+      img: e.img || null
+    });
+    known.add(e.code.toUpperCase());
+  }
+  if (extra.length) console.log(`${extra.length} supplemental card(s) merged from extra-cards.json.`);
+
   return out;
 }
 

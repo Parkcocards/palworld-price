@@ -3,14 +3,15 @@
  * -----------------------
  * 1. Pulls the full card list (including parallel printings) from the
  *    palworldtcg.gg public API — no hand-maintained card list.
- * 2. Prices each card from live eBay listings (median, outlier-trimmed).
+ * 2. Prices each card from live eBay listings (median, outlier-trimmed,
+ *    one listing per seller).
  * 3. Writes prices.json, which the Shopify page reads.
  *
  * Run:  EBAY_APP_ID=xxx EBAY_CERT_ID=yyy node fetch-prices.js
  * Node 20+ (built-in fetch). No npm packages.
  *
  * Card data © Bushiroad / Pocketpair, supplied by palworldtcg.gg.
- * Prices are derived from public eBay listings.
+ * Prices are derived from public eBay listings (asking prices, not sold).
  */
 
 const fs = require("fs");
@@ -23,6 +24,8 @@ const CARD_ORIGIN = "https://palworldtcg.gg";
 const CARD_API = "https://palworldtcg.gg/api/v1/cards";
 const CATEGORY_ID = "183454";                          // CCG Individual Cards
 const MIN_LISTINGS = 3;                                // below this, publish nothing
+const CONFIDENT_LISTINGS = 5;                          // below this, flag provisional
+const MAX_STALE_DAYS = 7;                              // drop a carried-over price after this
 const REQUEST_DELAY_MS = 250;                          // stay under eBay's rate limit
 const MAX_CARDS = Number(process.env.MAX_CARDS || 0);  // 0 = all
 
@@ -43,9 +46,10 @@ if (!APP_ID || !CERT_ID) {
 const BAD_WORDS = [
   "psa", "bgs", "cgc", "sgc", "graded", "slab",
   "lot", "bundle", "playset", "set of", "x4", "x10",
-  "sealed", "booster box", "booster pack", "trial deck", "tin",
+  "sealed", "booster box", "booster pack", "trial deck", "starter deck",
+  "deck box", "tin", "case",
   "proxy", "custom", "fan made", "fan-made", "orica", "reprint",
-  "sleeve", "binder", "toploader", "playmat", "deck box"
+  "sleeve", "binder", "toploader", "playmat"
 ];
 
 const median = arr => {
@@ -53,8 +57,6 @@ const median = arr => {
   const m = Math.floor(s.length / 2);
   return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
 };
-const pctChange = (now, then) =>
-  then && then > 0 ? Math.round(((now - then) / then) * 1000) / 10 : 0;
 
 /* ---------- 1. Card list ---------- */
 
@@ -70,23 +72,27 @@ async function getCardList() {
 
     totalPages = (body.meta && body.meta.total_pages) || 1;
     for (const c of body.data || []) {
-      // card_number may arrive as "EBP01-001" or bare "001"
       const code = String(c.card_number).includes("-")
         ? String(c.card_number)
         : `${c.set_code}-${c.card_number}`;
 
-      // The API returns a site-relative path; resolve it against its own origin.
       const rawImg = c.thumbnail_url || c.image_url;
+
+      /* Search on the Pal/card name only — NOT the flavour subtitle.
+         "Jormuntide Ignis – Savage Lava Dragon" as a query matches almost
+         nothing, because sellers rarely type the subtitle and the en-dash
+         breaks the match. That was starving every card of listings. */
+      const shortName = (c.pal_name || String(c.name).split(/[–—-]/)[0]).trim();
+
       out.push({
         id: c.slug || code,
         code,
         name: c.name,
-        palName: c.pal_name || null,
+        shortName,
         set: c.set_code,
         rarity: c.rarity,
         type: c.card_type,
-        img: rawImg ? new URL(rawImg, CARD_ORIGIN).href : null,
-        query: `Palworld ${c.name} ${code}`
+        img: rawImg ? new URL(rawImg, CARD_ORIGIN).href : null
       });
     }
     page++;
@@ -140,7 +146,7 @@ function titleMatches(title, card) {
   if (!t.includes("palworld")) return false;
   if (BAD_WORDS.some(w => t.includes(w))) return false;
 
-  const key = (card.palName || card.name).toLowerCase().replace(/[^a-z ]/g, "").split(" ")[0];
+  const key = card.shortName.toLowerCase().replace(/[^a-z ]/g, "").split(" ")[0];
   if (key && !t.includes(key)) return false;
 
   const want = parseCode(card.code);
@@ -155,9 +161,9 @@ function titleMatches(title, card) {
   return !/\b(sss|ssp|osr|sec|tsr|tsp|sr|sp)\b/.test(t);
 }
 
-async function priceCard(token, card) {
+async function search(token, q) {
   const url = "https://api.ebay.com/buy/browse/v1/item_summary/search"
-    + `?q=${encodeURIComponent(card.query)}`
+    + `?q=${encodeURIComponent(q)}`
     + `&category_ids=${CATEGORY_ID}`
     + "&limit=100"
     + "&filter=" + encodeURIComponent("buyingOptions:{FIXED_PRICE}");
@@ -170,27 +176,56 @@ async function priceCard(token, card) {
     }
   });
 
-  if (res.status === 429) { console.warn("  rate limited — pausing 60s"); await sleep(60000); return priceCard(token, card); }
-  if (!res.ok) { console.warn(`  ${card.code}: HTTP ${res.status}`); return null; }
+  if (res.status === 429) { console.warn("  rate limited — pausing 60s"); await sleep(60000); return search(token, q); }
+  if (!res.ok) { console.warn(`  query "${q}": HTTP ${res.status}`); return []; }
+  return (await res.json()).itemSummaries || [];
+}
 
-  const items = (await res.json()).itemSummaries || [];
+async function priceCard(token, card) {
+  /* Two passes: code-qualified first (most precise), then name-only to pick up
+     the many sellers who never type the card number. Merged and de-duplicated. */
+  const seen = new Map();
+  const collect = items => items.forEach(i => { if (i.itemId && !seen.has(i.itemId)) seen.set(i.itemId, i); });
 
-  let prices = items
-    .filter(i => i.title && i.price && titleMatches(i.title, card))
-    .map(i => Number(i.price.value))
-    .filter(p => p >= 0.5 && p < 100000);
+  collect(await search(token, `Palworld ${card.shortName} ${card.code}`));
+  if (seen.size < CONFIDENT_LISTINGS) {
+    await sleep(REQUEST_DELAY_MS);
+    collect(await search(token, `Palworld TCG ${card.shortName}`));
+  }
 
+  const matched = [...seen.values()].filter(i => i.title && i.price && titleMatches(i.title, card));
+
+  /* One listing per seller, cheapest kept. A single seller with 12 copies of
+     the same card would otherwise dictate the median on their own. */
+  const perSeller = new Map();
+  for (const i of matched) {
+    const seller = (i.seller && i.seller.username) || i.itemId;
+    const p = Number(i.price.value);
+    if (!(p >= 0.5 && p < 100000)) continue;
+    if (!perSeller.has(seller) || p < perSeller.get(seller)) perSeller.set(seller, p);
+  }
+
+  let prices = [...perSeller.values()];
   if (prices.length < MIN_LISTINGS) return null;
 
-  const rough = median(prices);
-  prices = prices.filter(p => p >= rough * 0.2 && p <= rough * 5);
+  /* Trim outliers twice around the running median. The old single pass used a
+     0.2x–5x window — a 25x spread — which let $20 and $400 listings both sit
+     inside the same "clean" set. */
+  for (let pass = 0; pass < 2; pass++) {
+    const mid = median(prices);
+    const kept = prices.filter(p => p >= mid * 0.4 && p <= mid * 2.5);
+    if (kept.length < MIN_LISTINGS) break;
+    prices = kept;
+  }
   if (prices.length < MIN_LISTINGS) return null;
 
   return {
     price: Math.round(median(prices) * 100) / 100,
     low: Math.round(Math.min(...prices) * 100) / 100,
     high: Math.round(Math.max(...prices) * 100) / 100,
-    count: prices.length
+    count: prices.length,
+    sellers: perSeller.size,
+    provisional: prices.length < CONFIDENT_LISTINGS
   };
 }
 
@@ -210,25 +245,47 @@ async function priceCard(token, card) {
   const today = new Date().toISOString().slice(0, 10);
   history[today] = history[today] || {};
 
+  /* Look back to the NEAREST recorded day within a window, not an exact date.
+     If the job misses a day (GitHub cron is best-effort), an exact-date lookup
+     finds nothing and every change column silently reads 0.00%. */
+  const priceAgo = (id, days) => {
+    for (let d = days; d <= days + 3; d++) {
+      const key = new Date(Date.now() - d * 86400000).toISOString().slice(0, 10);
+      if (history[key] && history[key][id] != null) return history[key][id];
+    }
+    return null;
+  };
+  const pctChange = (now, then) =>
+    then && then > 0 ? Math.round(((now - then) / then) * 1000) / 10 : null;
+
   const out = [];
-  let priced = 0, stale = 0, skipped = 0;
+  let priced = 0, carried = 0, dropped = 0, skipped = 0;
 
   for (const card of list) {
-    let result = null;
+    let result = null, staleDays = 0;
     try { result = await priceCard(token, card); }
     catch (e) { console.warn(`  ${card.code}: ${e.message}`); }
 
-    const prev = prevById[card.id];
-    if (!result && prev) { result = { price: prev.price, low: prev.low, high: prev.high, count: prev.count }; stale++; }
-    if (!result) { skipped++; await sleep(REQUEST_DELAY_MS); continue; }
-
-    history[today][card.id] = result.price;
-    priced++;
-
-    const ago = n => {
-      const d = new Date(Date.now() - n * 86400000).toISOString().slice(0, 10);
-      return history[d] && history[d][card.id];
-    };
+    if (result) {
+      /* Only FRESH prices go into history. Writing a carried-over price would
+         make tomorrow compare a copy against its own copy — permanently 0%. */
+      history[today][card.id] = result.price;
+      priced++;
+    } else {
+      const prev = prevById[card.id];
+      staleDays = prev ? (prev.staleDays || 0) + 1 : 0;
+      if (prev && staleDays <= MAX_STALE_DAYS) {
+        result = {
+          price: prev.price, low: prev.low, high: prev.high,
+          count: prev.count, sellers: prev.sellers, provisional: true
+        };
+        carried++;
+      } else {
+        if (prev) dropped++; else skipped++;
+        await sleep(REQUEST_DELAY_MS);
+        continue;
+      }
+    }
 
     out.push({
       id: card.id,
@@ -242,10 +299,14 @@ async function priceCard(token, card) {
       low: result.low,
       high: result.high,
       count: result.count,
-      d1: pctChange(result.price, ago(1)),
-      d3: pctChange(result.price, ago(3)),
-      d7: pctChange(result.price, ago(7)),
-      d30: pctChange(result.price, ago(30))
+      sellers: result.sellers,
+      provisional: !!result.provisional,
+      stale: staleDays > 0,
+      staleDays,
+      d1: pctChange(result.price, priceAgo(card.id, 1)),
+      d3: pctChange(result.price, priceAgo(card.id, 3)),
+      d7: pctChange(result.price, priceAgo(card.id, 7)),
+      d30: pctChange(result.price, priceAgo(card.id, 30))
     });
 
     await sleep(REQUEST_DELAY_MS);
@@ -257,10 +318,18 @@ async function priceCard(token, card) {
 
   write("prices.json", {
     updated: new Date().toISOString(),
-    source: "Median of live eBay listings. Card data from palworldtcg.gg.",
+    source: "Median of live eBay asking prices, one listing per seller. Card data from palworldtcg.gg.",
+    freshCount: priced,
     cards: out
   });
   write("history.json", history);
 
-  console.log(`Done. ${priced} priced (${stale} carried over), ${skipped} skipped for too few listings.`);
+  console.log(
+    `Done. ${priced} freshly priced, ${carried} carried over, ` +
+    `${dropped} dropped (stale >${MAX_STALE_DAYS}d), ${skipped} never had enough listings.`
+  );
+  if (priced === 0) {
+    console.error("WARNING: nothing was priced fresh this run — check the eBay credentials and query matching.");
+    process.exitCode = 1;
+  }
 })();

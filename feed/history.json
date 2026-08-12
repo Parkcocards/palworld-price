@@ -563,7 +563,7 @@
     "bp01-006-foxparks-light-of-courage": 2.49,
     "bp01-007-kitsun-wyrmbane-fangs": 1.99,
     "bp01-007-sr-kitsun-wyrmbane-fangs": 7.5,
-    "bp01-008-sparkit-hazardous-contact": 2.19,
+    "bp01-008-sparkit-hazardous-contact": 2,
     "bp01-009-univolt-valiant-thunderclap": 1.97,
     "bp01-010-ragnahawk-emberwing-striker": 2.19,
     "bp01-011-rooby-brave-sparks": 1.89,
@@ -582,7 +582,7 @@
     "bp01-025-osr-chillet-dragon-whisperer": 62.5,
     "bp01-025-ssp-chillet-dragon-whisperer": 650,
     "bp01-026-relaxaurus-hungry-gunner": 12,
-    "bp01-026-osr-relaxaurus-hungry-gunner": 37.99,
+    "bp01-026-osr-relaxaurus-hungry-gunner": 35.99,
     "bp01-026-sp-relaxaurus-hungry-gunner": 270.14,
     "bp01-027-jormuntide-surging-sea-serpent": 12.5,
     "bp01-027-osr-jormuntide-surging-sea-serpent": 40,
@@ -709,7 +709,7 @@
     "bp01-084-menasting-darkness-dwelling-scorpion": 2.17,
     "bp01-087-loupmoon-glinting-moonlight": 1.99,
     "esoul-002": 1675,
-    "esoul-003": 149.99,
+    "esoul-003": 143.64,
     "epr-001": 55
   }
 }

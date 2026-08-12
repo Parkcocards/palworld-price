@@ -286,6 +286,16 @@ async function priceCard(token, card) {
   let prices = [...perSeller.values()];
   if (prices.length < MIN_LISTINGS) return null;
 
+  /* Representative photo for cards the card-art database has no image for
+     (the ESOUL Soul cards). Prefer a mid-priced listing: the cheapest is often
+     a bad photo or the wrong card, the dearest is often a staged shot. */
+  const byPrice = matched
+    .filter(i => i.image && i.image.imageUrl)
+    .sort((a, b) => Number(a.price.value) - Number(b.price.value));
+  const fallbackImg = byPrice.length
+    ? byPrice[Math.floor(byPrice.length / 2)].image.imageUrl
+    : null;
+
   /* Trim outliers twice around the running median. The old single pass used a
      0.2x–5x window — a 25x spread — which let $20 and $400 listings both sit
      inside the same "clean" set. */
@@ -303,7 +313,8 @@ async function priceCard(token, card) {
     high: Math.round(Math.max(...prices) * 100) / 100,
     count: prices.length,
     sellers: perSeller.size,
-    provisional: prices.length < CONFIDENT_LISTINGS
+    provisional: prices.length < CONFIDENT_LISTINGS,
+    fallbackImg
   };
 }
 
@@ -387,7 +398,7 @@ async function priceCard(token, card) {
       num: card.code,
       rarity: card.rarity,
       type: card.type,
-      img: card.img,
+      img: card.img || result.fallbackImg || (prevById[card.id] || {}).img || null,
       price: result.price,
       low: result.low,
       high: result.high,

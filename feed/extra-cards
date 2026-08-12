@@ -1,0 +1,47 @@
+[
+  {
+    "code": "ESOUL-002",
+    "name": "Soul – Gold Soul Card (Cattiva)",
+    "shortName": "Soul",
+    "set": "ESOUL",
+    "rarity": "SSS",
+    "type": "Soul",
+    "img": null
+  },
+  {
+    "code": "ESOUL-000",
+    "name": "Soul",
+    "shortName": "Soul",
+    "set": "ESOUL",
+    "rarity": "PR",
+    "type": "Soul",
+    "img": null
+  },
+  {
+    "code": "ESOUL-001",
+    "name": "Soul",
+    "shortName": "Soul",
+    "set": "ESOUL",
+    "rarity": "TD",
+    "type": "Soul",
+    "img": null
+  },
+  {
+    "code": "ESOUL-003",
+    "name": "Soul",
+    "shortName": "Soul",
+    "set": "ESOUL",
+    "rarity": "TD",
+    "type": "Soul",
+    "img": null
+  },
+  {
+    "code": "EPR-001",
+    "name": "Lamball – My First Pal",
+    "shortName": "Lamball",
+    "set": "EPR",
+    "rarity": "PR",
+    "type": "Pal",
+    "img": null
+  }
+]

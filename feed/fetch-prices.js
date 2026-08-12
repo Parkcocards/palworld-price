@@ -120,31 +120,50 @@ async function getToken() {
 }
 
 /**
- * Card codes read SETCODE-NNN, with a parallel rarity as a THIRD hyphenated
- * part when the printing is a parallel:
+ * Card codes read SETCODE-NNN, with a parallel rarity as an optional third
+ * hyphenated part:
  *   BP01-001       base printing (its rarity may be C/U/R/RR — still a base)
  *   BP01-001-OSR   Over Super Rare parallel
- *   BP01-025-SSP   Super Special Parallel
+ *   ESOUL-002-SSS  Gold Soul card
+ * The set code is parsed generically rather than from a whitelist. A hardcoded
+ * list of BP/TD/PR silently dropped every ESOUL printing — including the most
+ * valuable cards in the game — because they simply failed to parse.
  * Sellers sometimes run the suffix on without the hyphen, so both are allowed.
  * RR is deliberately NOT a suffix: it is a base rarity, and treating it as one
  * would make a base listing that names its rarity fail to match its own card.
  */
-const CODE_RE = /\b(e?bp\d{2}|td\d{2}|pr)\s*-\s*(\d{1,3})\s*(?:-\s*)?(sss|ssp|osr|sec|tsr|tsp|sr|sp)?\b/i;
+const SUFFIXES = "sss|ssp|osr|sec|tsr|tsp|sr|sp";
+const CODE_RE = new RegExp(`\\b([a-z]{2,6}\\d{0,2})\\s*-\\s*(\\d{1,3})(?:\\s*-?\\s*(${SUFFIXES}))?\\b`, "gi");
+
+/* English reprints prefix the set code with E (BP01 / EBP01, SOUL / ESOUL).
+   Normalise so the two never look like different sets. */
+const normSet = s => s.toLowerCase().replace(/^e(?=[a-z])/, "");
+
+function parseCodes(s) {
+  const out = [];
+  CODE_RE.lastIndex = 0;
+  let m;
+  while ((m = CODE_RE.exec(s)) !== null) {
+    out.push({ set: normSet(m[1]), num: String(Number(m[2])), suffix: (m[3] || "").toUpperCase() });
+  }
+  return out;
+}
 
 function parseCode(s) {
-  const m = s.match(CODE_RE);
-  if (!m) return null;
-  return {
-    set: m[1].toLowerCase().replace(/^e/, ""),
-    num: String(Number(m[2])),
-    suffix: (m[3] || "").toUpperCase()
-  };
+  return parseCodes(s)[0] || null;
 }
+
+/* Parallel rarity abbreviations, matched ANYWHERE in a title. The card code
+   parser only reads a suffix that follows the number, so "Chillet SSP BP01-025"
+   parses as a bare base code — which is exactly how $650 parallels ended up
+   pricing the $12 base card. RR is absent on purpose: it is a base rarity, and
+   a base listing that names its own rarity must still match itself. */
+const PARALLEL_TOKEN = /\b(sss|ssp|osr|sec|tsr|tsp|sr|sp)\b/i;
 
 /* Parallel names sellers spell out instead of abbreviating. A base printing
    whose title carries any of these is really a parallel listing, and letting
    one through hands a $10 base card a $450 parallel price. */
-const SPELLED_PARALLEL = /(super special|over super|secret rare|ultra secret|gold card|parallel|full art|alt art|alternate art)/i;
+const SPELLED_PARALLEL = /(super special|over super|secret rare|ultra secret|gold card|parallel|full art|alt art|alternate art|holo foil)/i;
 
 function titleMatches(title, card) {
   const t = title.toLowerCase();
@@ -155,17 +174,29 @@ function titleMatches(title, card) {
   if (key && !t.includes(key)) return false;
 
   const want = parseCode(card.code);
-  const got = parseCode(title);
+  if (!want) return false;
 
-  /* Require an exact card code in the listing title. Inferring identity from
+  /* Require the exact card code in the listing title. Inferring identity from
      the Pal name alone is what let parallels contaminate base cards: one Pal
-     has up to four printings spanning $2 to $700, and the name is identical
-     across all of them. Fewer listings, but the ones we keep are the card. */
-  if (!want || !got) return false;
-  if (got.set !== want.set || got.num !== want.num || got.suffix !== want.suffix) return false;
+     has up to four printings spanning $2 to $1,600 with an identical name.
+     Scan every code in the title, not just the first — titles often carry a
+     set code and a card code. */
+  const found = parseCodes(title);
+  if (!found.length) return false;
+  if (!found.some(g => g.set === want.set && g.num === want.num && g.suffix === want.suffix)) return false;
 
-  // Base printing (no suffix) must not be a spelled-out parallel listing.
-  if (!want.suffix && SPELLED_PARALLEL.test(t)) return false;
+  // Base printing (no suffix) must not name a parallel anywhere in the title,
+  // in abbreviated or spelled-out form.
+  if (!want.suffix && (PARALLEL_TOKEN.test(t) || SPELLED_PARALLEL.test(t))) return false;
+
+  // A parallel must not name a DIFFERENT parallel's suffix.
+  if (want.suffix) {
+    const mine = want.suffix.toLowerCase();
+    const others = SUFFIXES.split("|").filter(s => s !== mine);
+    // "SSP" contains "sp" as a substring, so compare whole tokens only.
+    const tokens = t.match(/\b[a-z]{2,3}\b/g) || [];
+    if (tokens.some(tok => others.includes(tok))) return false;
+  }
 
   return true;
 }
@@ -244,6 +275,8 @@ async function priceCard(token, card) {
   console.log("Fetching card list…");
   const cards = await getCardList();
   console.log(`${cards.length} printings in the database.`);
+  const sets = [...new Set(cards.map(c => c.set))].sort();
+  console.log(`Sets: ${sets.join(", ")}`);
 
   const history = read("history.json", {});
   const previous = read("prices.json", { cards: [] });

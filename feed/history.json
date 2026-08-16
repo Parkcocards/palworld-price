@@ -997,7 +997,7 @@
     "bp01-001-ssp-jormuntide-ignis-savage-lava-dragon": 450,
     "bp01-002-suzaku-hellfire-wings": 7.99,
     "bp01-003-gobfin-ignis-blazing-hothead": 3,
-    "bp01-003-sr-gobfin-ignis-blazing-hothead": 7.49,
+    "bp01-003-sr-gobfin-ignis-blazing-hothead": 6.99,
     "bp01-005-reptyro-ore-gorger": 3,
     "bp01-006-foxparks-light-of-courage": 2.49,
     "bp01-007-kitsun-wyrmbane-fangs": 1.75,
@@ -1037,7 +1037,7 @@
     "bp01-047-pal-sphere": 2.99,
     "bp01-048-aurora-guide": 1.97,
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 32.49,
-    "bp01-050-digtoise-seismic-drillback": 8.5,
+    "bp01-050-digtoise-seismic-drillback": 12.5,
     "bp01-050-osr-digtoise-seismic-drillback": 34,
     "bp01-050-sp-digtoise-seismic-drillback": 95,
     "bp01-051-sp-petallia-sweet-blessings": 100,
@@ -1092,7 +1092,8 @@
     "td02-008-tsr-berry-plantation": 14.99,
     "esoul-002": 1410.35,
     "esoul-001": 1.99,
-    "esoul-003": 141.67,
-    "epr-001": 60
+    "esoul-003": 140,
+    "epr-001": 60,
+    "pr-007-digtoise-keen-needleback": 52.5
   }
 }

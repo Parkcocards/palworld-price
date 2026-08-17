@@ -1142,7 +1142,7 @@
     "bp01-048-aurora-guide": 1.99,
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 32.49,
     "bp01-050-digtoise-seismic-drillback": 4.39,
-    "bp01-050-osr-digtoise-seismic-drillback": 34,
+    "bp01-050-osr-digtoise-seismic-drillback": 32,
     "bp01-050-sp-digtoise-seismic-drillback": 95,
     "bp01-051-osr-petallia-sweet-blessings": 30,
     "bp01-051-sp-petallia-sweet-blessings": 100,
@@ -1185,7 +1185,7 @@
     "bp01-092-viewing-cage": 1.82,
     "bp01-093-meat-cleaver": 3,
     "bp01-093-sr-meat-cleaver": 8.98,
-    "bp01-096-dark-cannon": 1.99,
+    "bp01-096-dark-cannon": 1.94,
     "bp01-097-black-marketeer": 1.99,
     "bp01-098-elphidran-gentle-radiance": 2.08,
     "bp01-099-direhowl-proud-fang": 1.45,
@@ -1200,7 +1200,7 @@
     "td02-008-tsr-berry-plantation": 14.99,
     "esoul-002": 1699.99,
     "esoul-001": 1.99,
-    "esoul-003": 140,
+    "esoul-003": 139.99,
     "epr-001": 60
   }
 }

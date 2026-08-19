@@ -1327,7 +1327,7 @@
     "bp01-013-pyrin-cinder-steed": 1.99,
     "bp01-014-blazehowl-hellflame-defender": 1.99,
     "bp01-015-mounted-machine-gun": 3,
-    "bp01-015-sp-mounted-machine-gun": 120,
+    "bp01-015-sp-mounted-machine-gun": 100,
     "bp01-016-primitive-furnace": 2,
     "bp01-017-flame-cauldron": 2,
     "bp01-018-alarm-bell": 1.89,
@@ -1358,7 +1358,7 @@
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 32.49,
     "bp01-050-digtoise-seismic-drillback": 4.39,
     "bp01-050-osr-digtoise-seismic-drillback": 29.99,
-    "bp01-050-sp-digtoise-seismic-drillback": 89.97,
+    "bp01-050-sp-digtoise-seismic-drillback": 92.49,
     "bp01-051-osr-petallia-sweet-blessings": 30,
     "bp01-051-sp-petallia-sweet-blessings": 100,
     "bp01-052-rushoar-reckless-destruction": 3,
@@ -1373,7 +1373,7 @@
     "bp01-062-wumpo-botan-tropical-sentinel": 2,
     "bp01-063-breeding-farm": 2.33,
     "bp01-063-sr-breeding-farm": 5,
-    "bp01-064-sr-cola-vending-machine": 9.5,
+    "bp01-064-sr-cola-vending-machine": 9,
     "bp01-065-feed-box": 2,
     "bp01-066-ranch": 1.72,
     "bp01-067-no-pals-beyond-sign": 1.99,
@@ -1407,7 +1407,7 @@
     "bp01-099-direhowl-proud-fang": 1.45,
     "bp01-100-the-adventure-begins": 1.88,
     "bp01-100-sr-the-adventure-begins": 10.49,
-    "pr-007-digtoise-keen-needleback": 49.99,
+    "pr-007-digtoise-keen-needleback": 60,
     "promo-soul-003": 99,
     "td01-012-tsr-elphidran-aqua-gentle-ripples": 43.99,
     "td01-019-antique-wooden-chair": 2.12,
@@ -1418,6 +1418,9 @@
     "esoul-001": 2,
     "esoul-003": 135.15,
     "epr-001": 60,
-    "bp01-052-sr-rushoar-reckless-destruction": 4.99
+    "bp01-052-sr-rushoar-reckless-destruction": 4.99,
+    "bp01-026-relaxaurus-hungry-gunner": 14.99,
+    "bp01-064-cola-vending-machine": 3,
+    "pr-002-flambelle-scorching-tears": 90
   }
 }

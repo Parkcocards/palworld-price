@@ -1313,7 +1313,7 @@
   "2026-08-19": {
     "bp01-001-osr-jormuntide-ignis-savage-lava-dragon": 30,
     "bp01-001-ssp-jormuntide-ignis-savage-lava-dragon": 450,
-    "bp01-002-suzaku-hellfire-wings": 4.89,
+    "bp01-002-suzaku-hellfire-wings": 5.99,
     "bp01-003-gobfin-ignis-blazing-hothead": 3,
     "bp01-003-sr-gobfin-ignis-blazing-hothead": 6.98,
     "bp01-005-reptyro-ore-gorger": 3,
@@ -1336,7 +1336,7 @@
     "bp01-024-treasure-chest-found": 2,
     "bp01-026-osr-relaxaurus-hungry-gunner": 34.14,
     "bp01-027-osr-jormuntide-surging-sea-serpent": 34.99,
-    "bp01-029-azurobe-water-dragon-waltz": 3.64,
+    "bp01-029-azurobe-water-dragon-waltz": 3.17,
     "bp01-029-sr-azurobe-water-dragon-waltz": 8.81,
     "bp01-033-wumpo-frostpeak-sentinel": 1.72,
     "bp01-034-teafant-fountain-of-cheer": 1.72,
@@ -1372,7 +1372,7 @@
     "bp01-061-beegarde-knight-of-the-flower-garden": 2.77,
     "bp01-062-wumpo-botan-tropical-sentinel": 2,
     "bp01-063-breeding-farm": 2.33,
-    "bp01-063-sr-breeding-farm": 5.05,
+    "bp01-063-sr-breeding-farm": 5.03,
     "bp01-064-sr-cola-vending-machine": 9.5,
     "bp01-065-feed-box": 2,
     "bp01-066-ranch": 1.72,
@@ -1417,6 +1417,7 @@
     "esoul-002": 1712.5,
     "esoul-001": 2,
     "esoul-003": 135.15,
-    "epr-001": 60
+    "epr-001": 60,
+    "bp01-052-sr-rushoar-reckless-destruction": 4.99
   }
 }

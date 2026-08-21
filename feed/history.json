@@ -1590,7 +1590,7 @@
     "bp01-047-pal-sphere": 2.99,
     "bp01-048-aurora-guide": 1.99,
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 32.49,
-    "bp01-050-digtoise-seismic-drillback": 10,
+    "bp01-050-digtoise-seismic-drillback": 10.25,
     "bp01-050-osr-digtoise-seismic-drillback": 29.99,
     "bp01-050-sp-digtoise-seismic-drillback": 87.99,
     "bp01-051-petallia-sweet-blessings": 3.49,
@@ -1653,12 +1653,12 @@
     "td01-020-primitive-workbench": 2.12,
     "td02-008-tsr-berry-plantation": 14.99,
     "td02-012-tsp-astegon-aegis-wyvern-of-death": 189,
-    "esoul-002": 2000,
+    "esoul-002": 2500,
     "esoul-001": 2,
     "esoul-003": 136.31,
     "epr-001": 62.5,
     "bp01-015-sp-mounted-machine-gun": 120,
     "pr-003-blazehowl-hellflame-defender": 40,
-    "bp01-020-pump-action-shotgun": 5
+    "bp01-020-pump-action-shotgun": 5.32
   }
 }

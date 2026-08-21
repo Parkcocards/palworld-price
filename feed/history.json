@@ -1567,7 +1567,7 @@
     "bp01-024-treasure-chest-found": 2,
     "bp01-026-relaxaurus-hungry-gunner": 14.93,
     "bp01-026-osr-relaxaurus-hungry-gunner": 34.14,
-    "bp01-027-osr-jormuntide-surging-sea-serpent": 34.99,
+    "bp01-027-osr-jormuntide-surging-sea-serpent": 37,
     "bp01-028-pengullet-yearning-for-the-sky": 3.49,
     "bp01-029-azurobe-water-dragon-waltz": 3.25,
     "bp01-029-sr-azurobe-water-dragon-waltz": 8.84,
@@ -1607,7 +1607,7 @@
     "bp01-060-tanzee-cheerful-worker": 1.87,
     "bp01-061-beegarde-knight-of-the-flower-garden": 2.77,
     "bp01-062-wumpo-botan-tropical-sentinel": 2,
-    "bp01-063-breeding-farm": 2.7,
+    "bp01-063-breeding-farm": 2.6,
     "bp01-063-sr-breeding-farm": 5.05,
     "bp01-064-cola-vending-machine": 3,
     "bp01-064-sr-cola-vending-machine": 9,
@@ -1657,6 +1657,7 @@
     "esoul-001": 2,
     "esoul-003": 136.31,
     "epr-001": 60,
-    "bp01-015-sp-mounted-machine-gun": 120
+    "bp01-015-sp-mounted-machine-gun": 120,
+    "pr-003-blazehowl-hellflame-defender": 40
   }
 }

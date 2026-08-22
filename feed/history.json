@@ -1688,7 +1688,7 @@
     "bp01-022-stone-pickaxe": 1.99,
     "bp01-024-treasure-chest-found": 2,
     "bp01-026-relaxaurus-hungry-gunner": 13.68,
-    "bp01-026-osr-relaxaurus-hungry-gunner": 34.14,
+    "bp01-026-osr-relaxaurus-hungry-gunner": 35.07,
     "bp01-027-osr-jormuntide-surging-sea-serpent": 39,
     "bp01-028-pengullet-yearning-for-the-sky": 3.49,
     "bp01-029-azurobe-water-dragon-waltz": 3,
@@ -1706,9 +1706,9 @@
     "bp01-041-hot-spring": 2.75,
     "bp01-042-antique-mirror": 2,
     "bp01-043-sphere-workbench": 1.99,
-    "bp01-044-pengullet-rocket-launcher": 4,
+    "bp01-044-pengullet-rocket-launcher": 4.25,
     "bp01-044-sr-pengullet-rocket-launcher": 7.99,
-    "bp01-045-grappling-gun": 2.16,
+    "bp01-045-grappling-gun": 2.15,
     "bp01-047-pal-sphere": 2.87,
     "bp01-048-aurora-guide": 1.99,
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 32.49,
@@ -1761,7 +1761,7 @@
     "bp01-093-meat-cleaver": 3,
     "bp01-093-sr-meat-cleaver": 8.98,
     "bp01-096-dark-cannon": 1.99,
-    "bp01-097-black-marketeer": 2,
+    "bp01-097-black-marketeer": 1.99,
     "bp01-098-elphidran-gentle-radiance": 2.18,
     "bp01-099-direhowl-proud-fang": 1.45,
     "bp01-100-the-adventure-begins": 2,
@@ -1778,7 +1778,7 @@
     "td02-008-tsr-berry-plantation": 14.99,
     "td02-012-tsp-astegon-aegis-wyvern-of-death": 187.86,
     "esoul-001": 2,
-    "esoul-003": 137.25,
-    "epr-001": 62.5
+    "esoul-003": 138.05,
+    "epr-001": 65
   }
 }

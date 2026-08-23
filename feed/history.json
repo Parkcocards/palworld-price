@@ -1806,7 +1806,7 @@
     "bp01-021-makeshift-handgun": 1.94,
     "bp01-022-stone-pickaxe": 1.99,
     "bp01-024-treasure-chest-found": 2,
-    "bp01-026-relaxaurus-hungry-gunner": 13.68,
+    "bp01-026-relaxaurus-hungry-gunner": 12.49,
     "bp01-026-osr-relaxaurus-hungry-gunner": 35.99,
     "bp01-027-osr-jormuntide-surging-sea-serpent": 39,
     "bp01-029-azurobe-water-dragon-waltz": 3,
@@ -1833,7 +1833,7 @@
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 32.49,
     "bp01-050-digtoise-seismic-drillback": 10,
     "bp01-050-osr-digtoise-seismic-drillback": 29.99,
-    "bp01-050-sp-digtoise-seismic-drillback": 87.99,
+    "bp01-050-sp-digtoise-seismic-drillback": 84.99,
     "bp01-051-sp-petallia-sweet-blessings": 100,
     "bp01-052-rushoar-reckless-destruction": 3.25,
     "bp01-053-elizabee-queen-of-the-flower-garden": 3.48,
@@ -1856,9 +1856,9 @@
     "bp01-071-found-an-egg": 1.75,
     "bp01-072-blessing-of-the-flower-spirit": 2,
     "bp01-073-helzephyr-wings-of-the-moonless-night": 5,
-    "bp01-074-shadowbeak-seed-of-despair": 18.99,
+    "bp01-074-shadowbeak-seed-of-despair": 17.97,
     "bp01-074-osr-shadowbeak-seed-of-despair": 32.5,
-    "bp01-075-katress-abyssal-sorcerer": 5.32,
+    "bp01-075-katress-abyssal-sorcerer": 4.66,
     "bp01-076-tombat-out-of-nowhere": 4.75,
     "bp01-076-sr-tombat-out-of-nowhere": 9.24,
     "bp01-077-pyrin-noct-steed-of-azure-flames": 4.9,
@@ -1896,7 +1896,7 @@
     "td02-008-tsr-berry-plantation": 14.99,
     "td02-012-tsp-astegon-aegis-wyvern-of-death": 187.86,
     "esoul-001": 2,
-    "esoul-003": 134.98,
+    "esoul-003": 140,
     "epr-001": 67.5
   }
 }

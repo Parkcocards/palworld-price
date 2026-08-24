@@ -1944,8 +1944,8 @@
     "bp01-044-pengullet-rocket-launcher": 4.38,
     "bp01-044-sr-pengullet-rocket-launcher": 7.99,
     "bp01-045-grappling-gun": 2.16,
-    "bp01-047-pal-sphere": 2.83,
-    "bp01-047-sr-pal-sphere": 8.75,
+    "bp01-047-pal-sphere": 2.9,
+    "bp01-047-sr-pal-sphere": 8.5,
     "bp01-048-aurora-guide": 1.99,
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 32.49,
     "bp01-050-digtoise-seismic-drillback": 10,
@@ -1977,7 +1977,7 @@
     "bp01-074-osr-shadowbeak-seed-of-despair": 32.5,
     "bp01-075-katress-abyssal-sorcerer": 4.66,
     "bp01-076-tombat-out-of-nowhere": 4.75,
-    "bp01-076-sr-tombat-out-of-nowhere": 9.24,
+    "bp01-076-sr-tombat-out-of-nowhere": 9.99,
     "bp01-077-pyrin-noct-steed-of-azure-flames": 4.5,
     "bp01-078-lyleen-noct-providence-of-the-goddess": 3.5,
     "bp01-079-depresso-late-night-hustler": 2.35,
@@ -2003,7 +2003,7 @@
     "bp01-100-sr-the-adventure-begins": 7.99,
     "pr-002-flambelle-scorching-tears": 90,
     "pr-003-blazehowl-hellflame-defender": 40,
-    "pr-007-digtoise-keen-needleback": 90,
+    "pr-007-digtoise-keen-needleback": 120,
     "pr-009-loupmoon-glinting-moonlight": 75,
     "td01-002-jolthog-shocking-yet-innocent": 2.2,
     "td01-007-blazamut-molten-sovereign": 1.99,
@@ -2017,6 +2017,7 @@
     "td02-012-tsp-astegon-aegis-wyvern-of-death": 187.43,
     "esoul-001": 2,
     "esoul-003": 142.7,
-    "epr-001": 62.5
+    "epr-001": 62.5,
+    "bp01-007-sr-kitsun-wyrmbane-fangs": 7.99
   }
 }

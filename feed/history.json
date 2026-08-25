@@ -2025,7 +2025,7 @@
   "2026-08-25": {
     "bp01-001-jormuntide-ignis-savage-lava-dragon": 14.86,
     "bp01-001-ssp-jormuntide-ignis-savage-lava-dragon": 419,
-    "bp01-002-suzaku-hellfire-wings": 7.95,
+    "bp01-002-suzaku-hellfire-wings": 7.99,
     "bp01-003-gobfin-ignis-blazing-hothead": 3,
     "bp01-003-sr-gobfin-ignis-blazing-hothead": 6.74,
     "bp01-005-reptyro-ore-gorger": 3,
@@ -2085,7 +2085,7 @@
     "bp01-059-digtoise-keen-needleback": 2.4,
     "bp01-060-tanzee-cheerful-worker": 1.99,
     "bp01-062-wumpo-botan-tropical-sentinel": 2,
-    "bp01-063-breeding-farm": 2.34,
+    "bp01-063-breeding-farm": 2.4,
     "bp01-063-sr-breeding-farm": 5.8,
     "bp01-064-cola-vending-machine": 2.25,
     "bp01-064-sr-cola-vending-machine": 9,
@@ -2140,6 +2140,6 @@
     "td02-012-tsp-astegon-aegis-wyvern-of-death": 187.43,
     "esoul-001": 2,
     "esoul-003": 138.6,
-    "epr-001": 62.5
+    "epr-001": 67.5
   }
 }

@@ -2190,7 +2190,7 @@
     "bp01-047-pal-sphere": 2.84,
     "bp01-048-aurora-guide": 1.99,
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 29.98,
-    "bp01-050-digtoise-seismic-drillback": 9.88,
+    "bp01-050-digtoise-seismic-drillback": 9.75,
     "bp01-050-osr-digtoise-seismic-drillback": 30,
     "bp01-050-sp-digtoise-seismic-drillback": 80,
     "bp01-051-osr-petallia-sweet-blessings": 24.97,
@@ -2217,9 +2217,9 @@
     "bp01-072-blessing-of-the-flower-spirit": 2,
     "bp01-073-helzephyr-wings-of-the-moonless-night": 4.75,
     "bp01-074-shadowbeak-seed-of-despair": 17.97,
-    "bp01-075-katress-abyssal-sorcerer": 4.66,
+    "bp01-075-katress-abyssal-sorcerer": 4.41,
     "bp01-075-osr-katress-abyssal-sorcerer": 22.99,
-    "bp01-075-sp-katress-abyssal-sorcerer": 71.63,
+    "bp01-075-sp-katress-abyssal-sorcerer": 64.47,
     "bp01-076-tombat-out-of-nowhere": 4.52,
     "bp01-076-sr-tombat-out-of-nowhere": 7.5,
     "bp01-077-pyrin-noct-steed-of-azure-flames": 4.5,
@@ -2261,8 +2261,9 @@
     "td02-012-tsp-astegon-aegis-wyvern-of-death": 187.43,
     "esoul-002": 2749.99,
     "esoul-001": 2,
-    "esoul-003": 138.63,
+    "esoul-003": 137.26,
     "epr-001": 65,
-    "bp01-soul": 1740.35
+    "bp01-soul": 1740.35,
+    "bp01-074-osr-shadowbeak-seed-of-despair": 32.5
   }
 }

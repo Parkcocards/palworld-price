@@ -2546,7 +2546,7 @@
     "bp01-022-stone-pickaxe": 1.94,
     "bp01-024-treasure-chest-found": 2,
     "bp01-025-ssp-chillet-dragon-whisperer": 479.99,
-    "bp01-026-relaxaurus-hungry-gunner": 10.99,
+    "bp01-026-relaxaurus-hungry-gunner": 10.74,
     "bp01-026-osr-relaxaurus-hungry-gunner": 35.99,
     "bp01-027-osr-jormuntide-surging-sea-serpent": 32.5,
     "bp01-029-azurobe-water-dragon-waltz": 3.25,
@@ -2630,7 +2630,7 @@
     "bp01-soul": 2582,
     "pr-003-blazehowl-hellflame-defender": 39.99,
     "pr-007-digtoise-keen-needleback": 100,
-    "pr-009-loupmoon-glinting-moonlight": 70,
+    "pr-009-loupmoon-glinting-moonlight": 75,
     "promo-soul-003": 100,
     "td01-002-jolthog-shocking-yet-innocent": 2.2,
     "td01-007-blazamut-molten-sovereign": 1.99,
@@ -2640,12 +2640,13 @@
     "td01-017-suzaku-aqua-way-of-the-current": 1.89,
     "td01-019-antique-wooden-chair": 1.99,
     "td01-020-primitive-workbench": 2.1,
-    "td02-008-tsr-berry-plantation": 14.38,
-    "td02-012-tsp-astegon-aegis-wyvern-of-death": 186.99,
+    "td02-008-tsr-berry-plantation": 14.69,
+    "td02-012-tsp-astegon-aegis-wyvern-of-death": 187.43,
     "esoul-002": 2582,
     "esoul-001": 2,
-    "esoul-003": 129.03,
+    "esoul-003": 129.45,
     "epr-001": 150,
-    "bp01-061-beegarde-knight-of-the-flower-garden": 2.59
+    "bp01-061-beegarde-knight-of-the-flower-garden": 2.59,
+    "bp01-054-sr-warsect-iron-fortress": 4.63
   }
 }

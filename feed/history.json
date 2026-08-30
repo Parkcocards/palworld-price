@@ -2571,7 +2571,7 @@
     "bp01-048-aurora-guide": 1.99,
     "bp01-049-lyleen-blessing-of-the-goddess": 11.99,
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 27.49,
-    "bp01-050-digtoise-seismic-drillback": 9.99,
+    "bp01-050-digtoise-seismic-drillback": 10.19,
     "bp01-050-osr-digtoise-seismic-drillback": 30.99,
     "bp01-050-sp-digtoise-seismic-drillback": 80,
     "bp01-051-petallia-sweet-blessings": 3.99,
@@ -2642,11 +2642,12 @@
     "td01-020-primitive-workbench": 2.1,
     "td02-008-tsr-berry-plantation": 14.69,
     "td02-012-tsp-astegon-aegis-wyvern-of-death": 187.43,
-    "esoul-002": 2582,
+    "esoul-002": 2599.99,
     "esoul-001": 2,
     "esoul-003": 129.45,
     "epr-001": 150,
     "bp01-061-beegarde-knight-of-the-flower-garden": 2.59,
-    "bp01-054-sr-warsect-iron-fortress": 4.63
+    "bp01-054-sr-warsect-iron-fortress": 4.63,
+    "bp01-078-sr-lyleen-noct-providence-of-the-goddess": 10
   }
 }

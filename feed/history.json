@@ -2524,7 +2524,7 @@
   "2026-08-30": {
     "bp01-001-jormuntide-ignis-savage-lava-dragon": 14.76,
     "bp01-001-osr-jormuntide-ignis-savage-lava-dragon": 30,
-    "bp01-001-ssp-jormuntide-ignis-savage-lava-dragon": 550,
+    "bp01-001-ssp-jormuntide-ignis-savage-lava-dragon": 333.33,
     "bp01-002-suzaku-hellfire-wings": 7.99,
     "bp01-003-gobfin-ignis-blazing-hothead": 3,
     "bp01-003-sr-gobfin-ignis-blazing-hothead": 6.74,
@@ -2588,7 +2588,7 @@
     "bp01-060-tanzee-cheerful-worker": 1.87,
     "bp01-062-wumpo-botan-tropical-sentinel": 2,
     "bp01-063-breeding-farm": 3.49,
-    "bp01-063-sr-breeding-farm": 5.32,
+    "bp01-063-sr-breeding-farm": 5.05,
     "bp01-064-cola-vending-machine": 2.25,
     "bp01-064-sr-cola-vending-machine": 4,
     "bp01-065-feed-box": 2,
@@ -2627,7 +2627,7 @@
     "bp01-099-direhowl-proud-fang": 1.44,
     "bp01-100-the-adventure-begins": 2,
     "bp01-100-sr-the-adventure-begins": 7.99,
-    "bp01-soul": 2591,
+    "bp01-soul": 2582,
     "pr-003-blazehowl-hellflame-defender": 39.99,
     "pr-007-digtoise-keen-needleback": 100,
     "pr-009-loupmoon-glinting-moonlight": 70,
@@ -2644,7 +2644,8 @@
     "td02-012-tsp-astegon-aegis-wyvern-of-death": 186.99,
     "esoul-002": 2591,
     "esoul-001": 2,
-    "esoul-003": 129.03,
-    "epr-001": 122.5
+    "esoul-003": 124.99,
+    "epr-001": 150,
+    "bp01-061-beegarde-knight-of-the-flower-garden": 2.59
   }
 }

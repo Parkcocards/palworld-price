@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-30T20:09:15.736Z",
+  "updated": "2026-08-31T00:11:00.408Z",
   "source": "Median of live eBay asking prices, one listing per seller. Card data from palworldtcg.gg.",
   "freshCount": 126,
   "cards": [
@@ -20,8 +20,8 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -0.8,
-      "d7": null,
+      "d3": -0.4,
+      "d7": -0.7,
       "d30": null
     },
     {
@@ -39,7 +39,7 @@
       "sellers": 3,
       "provisional": true,
       "stale": true,
-      "staleDays": 5,
+      "staleDays": 6,
       "d1": 0,
       "d3": null,
       "d7": 0,
@@ -61,9 +61,9 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": -39.4,
+      "d1": 0,
       "d3": -20.4,
-      "d7": -25.9,
+      "d7": -20.4,
       "d30": null
     },
     {
@@ -98,8 +98,8 @@
       "price": 3,
       "low": 1.98,
       "high": 7,
-      "count": 31,
-      "sellers": 36,
+      "count": 32,
+      "sellers": 37,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
@@ -125,7 +125,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 0,
+      "d3": -3.4,
       "d7": 3.7,
       "d30": null
     },
@@ -188,7 +188,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 6.4,
+      "d3": 0,
       "d7": 6.4,
       "d30": null
     },
@@ -377,7 +377,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 0,
+      "d3": -17.9,
       "d7": 0,
       "d30": null
     },
@@ -501,10 +501,10 @@
       "sellers": 3,
       "provisional": true,
       "stale": true,
-      "staleDays": 3,
+      "staleDays": 4,
       "d1": 0,
-      "d3": -3.8,
-      "d7": null,
+      "d3": -1.9,
+      "d7": -3.8,
       "d30": null
     },
     {
@@ -523,7 +523,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -6.6,
+      "d1": 0,
       "d3": -14,
       "d7": -14,
       "d30": null
@@ -544,9 +544,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -13.8,
-      "d3": -4.2,
-      "d7": -4.2,
+      "d1": 0,
+      "d3": -13.8,
+      "d7": -9.2,
       "d30": null
     },
     {
@@ -557,17 +557,17 @@
       "rarity": "OSR",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-027-osr-jormuntide-surging-sea-serpent.webp",
-      "price": 32.5,
+      "price": 34.99,
       "low": 25,
       "high": 60,
-      "count": 12,
-      "sellers": 12,
+      "count": 11,
+      "sellers": 11,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0,
-      "d3": -18.7,
-      "d7": -16.7,
+      "d1": 7.7,
+      "d3": 0,
+      "d7": -10.3,
       "d30": null
     },
     {
@@ -586,7 +586,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 8.3,
+      "d1": 0,
       "d3": 8.3,
       "d7": 8.3,
       "d30": null
@@ -608,7 +608,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 1.8,
+      "d3": 0,
       "d7": 0,
       "d30": null
     },
@@ -629,7 +629,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 47.3,
+      "d3": 3,
       "d7": 47.3,
       "d30": null
     },
@@ -734,7 +734,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 0.5,
+      "d3": 0,
       "d7": 0.5,
       "d30": null
     },
@@ -767,17 +767,17 @@
       "rarity": "R",
       "type": "Structure",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-039-antique-curtain.webp",
-      "price": 5,
-      "low": 2.5,
+      "price": 2.5,
+      "low": 1.99,
       "high": 5.28,
-      "count": 3,
-      "sellers": 3,
-      "provisional": true,
+      "count": 5,
+      "sellers": 5,
+      "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0,
+      "d1": -50,
       "d3": 0,
-      "d7": 100,
+      "d7": 0,
       "d30": null
     },
     {
@@ -797,7 +797,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 0,
+      "d3": -0.5,
       "d7": 0,
       "d30": null
     },
@@ -894,15 +894,15 @@
       "type": "Gear",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-044-pengullet-rocket-launcher.webp",
       "price": 4,
-      "low": 3,
+      "low": 2.99,
       "high": 6.5,
-      "count": 11,
-      "sellers": 11,
+      "count": 12,
+      "sellers": 12,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 0,
+      "d3": -11.1,
       "d7": 0,
       "d30": null
     },
@@ -944,7 +944,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -7,
+      "d3": 0,
       "d7": -7.4,
       "d30": null
     },
@@ -964,9 +964,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -0.4,
-      "d3": -2.8,
-      "d7": -2.5,
+      "d1": 0,
+      "d3": 0,
+      "d7": -4.8,
       "d30": null
     },
     {
@@ -1007,7 +1007,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": null,
+      "d3": -7.7,
       "d7": null,
       "d30": null
     },
@@ -1027,8 +1027,8 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 9.1,
-      "d3": 0,
+      "d1": 0,
+      "d3": 9.1,
       "d7": -7.7,
       "d30": null
     },
@@ -1048,9 +1048,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 2,
-      "d3": 4.5,
-      "d7": -23.3,
+      "d1": 0,
+      "d3": 7.4,
+      "d7": 1.9,
       "d30": null
     },
     {
@@ -1070,7 +1070,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 3.3,
+      "d3": 0,
       "d7": 3.3,
       "d30": null
     },
@@ -1092,7 +1092,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": -5.9,
+      "d7": 0,
       "d30": null
     },
     {
@@ -1112,7 +1112,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": null,
+      "d3": 0,
       "d7": 14.3,
       "d30": null
     },
@@ -1133,7 +1133,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -19.9,
+      "d3": 0,
       "d7": -33.3,
       "d30": null
     },
@@ -1175,7 +1175,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 8.3,
+      "d3": 0,
       "d7": 8.3,
       "d30": null
     },
@@ -1196,7 +1196,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -0.3,
+      "d3": 0,
       "d7": -0.3,
       "d30": null
     },
@@ -1237,8 +1237,8 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 16,
-      "d3": null,
+      "d1": 0,
+      "d3": -7.2,
       "d7": null,
       "d30": null
     },
@@ -1259,7 +1259,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -0.6,
+      "d3": 0,
       "d7": -0.6,
       "d30": null
     },
@@ -1427,7 +1427,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 42.4,
+      "d3": 16.7,
       "d7": 49.1,
       "d30": null
     },
@@ -1447,9 +1447,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 1,
+      "d1": 0,
       "d3": -5.1,
-      "d7": -8.7,
+      "d7": -12.9,
       "d30": null
     },
     {
@@ -1460,17 +1460,17 @@
       "rarity": "R",
       "type": "Structure",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-064-cola-vending-machine.webp",
-      "price": 2.25,
-      "low": 1.99,
+      "price": 2.12,
+      "low": 1.97,
       "high": 3,
-      "count": 3,
-      "sellers": 4,
+      "count": 4,
+      "sellers": 5,
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0,
-      "d3": 0,
-      "d7": 0,
+      "d1": -5.8,
+      "d3": -5.8,
+      "d7": -5.8,
       "d30": null
     },
     {
@@ -1489,9 +1489,9 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 141.5,
+      "d1": 0,
       "d3": 0,
-      "d7": -5.6,
+      "d7": -10.5,
       "d30": null
     },
     {
@@ -1547,8 +1547,8 @@
       "price": 1.99,
       "low": 0.9,
       "high": 3.93,
-      "count": 24,
-      "sellers": 24,
+      "count": 25,
+      "sellers": 25,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
@@ -1638,7 +1638,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 5.1,
-      "d7": -0.2,
+      "d7": 0,
       "d30": null
     },
     {
@@ -1650,16 +1650,16 @@
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-074-shadowbeak-seed-of-despair.webp",
       "price": 16.95,
-      "low": 11.76,
+      "low": 10.99,
       "high": 20,
       "count": 9,
       "sellers": 10,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -5.7,
+      "d1": 0,
       "d3": -5.7,
-      "d7": -5.7,
+      "d7": 0,
       "d30": null
     },
     {
@@ -1679,7 +1679,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 19.7,
+      "d3": -0.4,
       "d7": 13.3,
       "d30": null
     },
@@ -1721,8 +1721,8 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 10.4,
-      "d7": 5.1,
+      "d3": 10.9,
+      "d7": 10.4,
       "d30": null
     },
     {
@@ -1742,8 +1742,8 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 6.7,
-      "d7": -13.4,
+      "d3": 0,
+      "d7": -19.9,
       "d30": null
     },
     {
@@ -1804,7 +1804,7 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": null,
+      "d1": 0,
       "d3": null,
       "d7": null,
       "d30": null
@@ -1817,17 +1817,17 @@
       "rarity": "U",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-079-depresso-late-night-hustler.webp",
-      "price": 2.24,
+      "price": 2.27,
       "low": 1.75,
       "high": 4.6,
-      "count": 6,
-      "sellers": 7,
+      "count": 7,
+      "sellers": 8,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 1.8,
-      "d3": -1.3,
-      "d7": -4.7,
+      "d1": 1.3,
+      "d3": 0,
+      "d7": -3.4,
       "d30": null
     },
     {
@@ -1931,7 +1931,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -9.5,
+      "d3": -9.1,
       "d7": -9.5,
       "d30": null
     },
@@ -1951,7 +1951,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -5,
+      "d1": 0,
       "d3": -5,
       "d7": -5,
       "d30": null
@@ -1985,17 +1985,17 @@
       "rarity": "C",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-086-nox-the-silent-one.webp",
-      "price": 1.72,
+      "price": 1.89,
       "low": 0.9,
-      "high": 1.99,
+      "high": 2.1,
       "count": 5,
       "sellers": 6,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 19.4,
-      "d3": 13.9,
-      "d7": 13.9,
+      "d1": 9.9,
+      "d3": 31.3,
+      "d7": 25.2,
       "d30": null
     },
     {
@@ -2078,7 +2078,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 0.5,
+      "d3": 0,
       "d7": 0.5,
       "d30": null
     },
@@ -2121,7 +2121,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": -0.3,
+      "d7": 0,
       "d30": null
     },
     {
@@ -2141,7 +2141,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 4.8,
+      "d3": 0,
       "d7": 31,
       "d30": null
     },
@@ -2225,7 +2225,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -0.7,
+      "d3": 0,
       "d7": -0.7,
       "d30": null
     },
@@ -2268,7 +2268,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": -5.9,
+      "d7": 0,
       "d30": null
     },
     {
@@ -2287,7 +2287,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 19,
+      "d1": 0,
       "d3": 48.4,
       "d7": null,
       "d30": null
@@ -2300,17 +2300,17 @@
       "rarity": "PR",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/pr-003-blazehowl-hellflame-defender.webp",
-      "price": 39.99,
-      "low": 32.99,
+      "price": 39.98,
+      "low": 31.99,
       "high": 49.99,
-      "count": 8,
-      "sellers": 8,
+      "count": 9,
+      "sellers": 9,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 0,
-      "d7": 0,
+      "d3": -0.1,
+      "d7": -0.1,
       "d30": null
     },
     {
@@ -2331,7 +2331,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": 11.1,
+      "d7": -16.7,
       "d30": null
     },
     {
@@ -2351,8 +2351,8 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 0,
-      "d7": 0,
+      "d3": 7.1,
+      "d7": -0.1,
       "d30": null
     },
     {
@@ -2372,7 +2372,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": null,
+      "d3": 0,
       "d7": null,
       "d30": null
     },
@@ -2435,7 +2435,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 5.5,
+      "d3": 0,
       "d7": 5.5,
       "d30": null
     },
@@ -2455,7 +2455,7 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": null,
+      "d1": 0,
       "d3": null,
       "d7": null,
       "d30": null
@@ -2476,9 +2476,9 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 9.9,
-      "d3": -12.6,
-      "d7": -13.6,
+      "d1": 0,
+      "d3": 9.9,
+      "d7": -12.6,
       "d30": null
     },
     {
@@ -2519,7 +2519,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": null,
+      "d3": 0,
       "d7": null,
       "d30": null
     },
@@ -2540,7 +2540,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 2.6,
+      "d3": 0,
       "d7": -5.2,
       "d30": null
     },
@@ -2581,9 +2581,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -4.8,
-      "d3": -5.3,
-      "d7": -8.7,
+      "d1": 0,
+      "d3": -5.2,
+      "d7": -7.2,
       "d30": null
     },
     {
@@ -2602,9 +2602,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.2,
-      "d3": 0,
-      "d7": 0.2,
+      "d1": 0,
+      "d3": 0.2,
+      "d7": 0,
       "d30": null
     },
     {
@@ -2623,7 +2623,7 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": -0.3,
+      "d1": 0,
       "d3": -5.8,
       "d7": 3.6,
       "d30": null
@@ -2657,17 +2657,17 @@
       "rarity": "TD",
       "type": "Soul",
       "img": "https://i.ebayimg.com/images/g/M70AAeSwmaVqbRhY/s-l225.jpg",
-      "price": 129.03,
+      "price": 128.61,
       "low": 69.98,
       "high": 300,
-      "count": 64,
-      "sellers": 67,
+      "count": 65,
+      "sellers": 68,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0,
-      "d3": -6,
-      "d7": -10,
+      "d1": -0.3,
+      "d3": -2.9,
+      "d7": -9.9,
       "d30": null
     },
     {
@@ -2678,17 +2678,17 @@
       "rarity": "PR",
       "type": "Pal",
       "img": "https://i.ebayimg.com/images/g/t0IAAeSwMm1qcNhY/s-l225.jpg",
-      "price": 85,
-      "low": 39.99,
+      "price": 95,
+      "low": 69.99,
       "high": 200,
-      "count": 8,
-      "sellers": 8,
+      "count": 7,
+      "sellers": 7,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -30.6,
-      "d3": 30.8,
-      "d7": 36,
+      "d1": 11.8,
+      "d3": 0,
+      "d7": 58.3,
       "d30": null
     }
   ]

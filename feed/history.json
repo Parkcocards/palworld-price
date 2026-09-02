@@ -2954,13 +2954,13 @@
     "bp01-045-grappling-gun": 1.99,
     "bp01-047-pal-sphere": 2.76,
     "bp01-048-aurora-guide": 1.99,
-    "bp01-049-lyleen-blessing-of-the-goddess": 11.99,
+    "bp01-049-lyleen-blessing-of-the-goddess": 10.97,
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 29.98,
     "bp01-050-digtoise-seismic-drillback": 9.99,
     "bp01-050-osr-digtoise-seismic-drillback": 30.99,
     "bp01-050-sp-digtoise-seismic-drillback": 80,
     "bp01-051-petallia-sweet-blessings": 3.39,
-    "bp01-051-osr-petallia-sweet-blessings": 19.99,
+    "bp01-051-osr-petallia-sweet-blessings": 22.47,
     "bp01-052-rushoar-reckless-destruction": 3.25,
     "bp01-053-elizabee-queen-of-the-flower-garden": 3,
     "bp01-054-warsect-iron-fortress": 3.49,
@@ -2972,7 +2972,7 @@
     "bp01-059-digtoise-keen-needleback": 2.49,
     "bp01-060-tanzee-cheerful-worker": 1.87,
     "bp01-062-wumpo-botan-tropical-sentinel": 2,
-    "bp01-063-breeding-farm": 3,
+    "bp01-063-breeding-farm": 3.49,
     "bp01-063-sr-breeding-farm": 5,
     "bp01-064-cola-vending-machine": 2.12,
     "bp01-064-sr-cola-vending-machine": 8.5,
@@ -3012,7 +3012,7 @@
     "bp01-098-elphidran-gentle-radiance": 2.17,
     "bp01-099-direhowl-proud-fang": 1.44,
     "bp01-100-the-adventure-begins": 2,
-    "bp01-100-sr-the-adventure-begins": 7.99,
+    "bp01-100-sr-the-adventure-begins": 8.49,
     "bp01-soul": 1535.18,
     "pr-003-blazehowl-hellflame-defender": 35.5,
     "pr-007-digtoise-keen-needleback": 95,
@@ -3032,6 +3032,6 @@
     "esoul-002": 4500,
     "esoul-001": 2,
     "esoul-003": 122.99,
-    "epr-001": 85
+    "epr-001": 95
   }
 }

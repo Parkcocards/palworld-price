@@ -3580,9 +3580,9 @@
     "epr-001": 50
   },
   "2026-09-07": {
-    "bp01-001-jormuntide-ignis-savage-lava-dragon": 8.97,
-    "bp01-001-osr-jormuntide-ignis-savage-lava-dragon": 31.99,
-    "bp01-001-ssp-jormuntide-ignis-savage-lava-dragon": 333.33,
+    "bp01-001-jormuntide-ignis-savage-lava-dragon": 9.87,
+    "bp01-001-osr-jormuntide-ignis-savage-lava-dragon": 30.99,
+    "bp01-001-ssp-jormuntide-ignis-savage-lava-dragon": 295.99,
     "bp01-002-suzaku-hellfire-wings": 7.99,
     "bp01-003-gobfin-ignis-blazing-hothead": 2.99,
     "bp01-003-sr-gobfin-ignis-blazing-hothead": 6.74,
@@ -3690,9 +3690,9 @@
     "bp01-soul": 1740.35,
     "pr-003-blazehowl-hellflame-defender": 35,
     "pr-007-digtoise-keen-needleback": 77.5,
-    "pr-009-loupmoon-glinting-moonlight": 62.5,
+    "pr-009-loupmoon-glinting-moonlight": 59.99,
     "promo-soul-003": 79.5,
-    "td01-001-tsr-grizzbolt-rumbling-tank": 43.36,
+    "td01-001-tsr-grizzbolt-rumbling-tank": 34.18,
     "td01-002-jolthog-shocking-yet-innocent": 2.1,
     "td01-007-blazamut-molten-sovereign": 1.99,
     "td01-011-ignis-breath": 1.99,
@@ -3706,9 +3706,10 @@
     "td02-006-tsr-broncherry-brimming-adoration": 29.99,
     "td02-008-tsr-berry-plantation": 14.72,
     "td02-012-tsp-astegon-aegis-wyvern-of-death": 185.9,
-    "esoul-002": 5500,
+    "esoul-002": 5250,
     "esoul-001": 2,
     "esoul-003": 130,
-    "epr-001": 70
+    "epr-001": 70,
+    "td01-012-tsp-elphidran-aqua-gentle-ripples": 286.99
   }
 }

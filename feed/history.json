@@ -3875,13 +3875,13 @@
     "bp01-019-sr-foxparks-harness": 2.95,
     "bp01-020-pump-action-shotgun": 3.5,
     "bp01-021-makeshift-handgun": 1.89,
-    "bp01-022-stone-pickaxe": 1.99,
+    "bp01-022-stone-pickaxe": 1.94,
     "bp01-024-treasure-chest-found": 2,
     "bp01-026-relaxaurus-hungry-gunner": 11.99,
     "bp01-026-osr-relaxaurus-hungry-gunner": 33.5,
     "bp01-027-osr-jormuntide-surging-sea-serpent": 37.49,
     "bp01-028-pengullet-yearning-for-the-sky": 3.5,
-    "bp01-029-azurobe-water-dragon-waltz": 3.24,
+    "bp01-029-azurobe-water-dragon-waltz": 3.49,
     "bp01-029-sr-azurobe-water-dragon-waltz": 9,
     "bp01-030-reptyro-cryst-glacial-devourer": 5.14,
     "bp01-032-fuack-manic-wave-ripper": 2.99,
@@ -3919,7 +3919,7 @@
     "bp01-061-beegarde-knight-of-the-flower-garden": 2.99,
     "bp01-062-wumpo-botan-tropical-sentinel": 2,
     "bp01-063-breeding-farm": 2.83,
-    "bp01-063-sr-breeding-farm": 5,
+    "bp01-063-sr-breeding-farm": 5.3,
     "bp01-064-cola-vending-machine": 2.12,
     "bp01-064-sr-cola-vending-machine": 9,
     "bp01-065-feed-box": 1.99,
@@ -3975,7 +3975,7 @@
     "td01-023-tsr-lamball-my-first-pal": 33.89,
     "td02-006-tsr-broncherry-brimming-adoration": 28.99,
     "td02-008-tsr-berry-plantation": 14.75,
-    "td02-012-tsp-astegon-aegis-wyvern-of-death": 185.89,
+    "td02-012-tsp-astegon-aegis-wyvern-of-death": 185.9,
     "esoul-002": 5000,
     "esoul-001": 2,
     "esoul-003": 121.5,
@@ -3988,6 +3988,7 @@
     "promo-soul-005": 50.99,
     "td01-soul": 2.2,
     "td01-012-tsp-elphidran-aqua-gentle-ripples": 285.88,
-    "td02-soul": 2.2
+    "td02-soul": 2.2,
+    "bp01-075-osr-katress-abyssal-sorcerer": 21
   }
 }

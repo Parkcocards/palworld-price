@@ -4460,7 +4460,7 @@
     "bp01-026-osr-relaxaurus-hungry-gunner": 34,
     "bp01-026-sp-relaxaurus-hungry-gunner": 79.88,
     "bp01-027-osr-jormuntide-surging-sea-serpent": 37.49,
-    "bp01-027-sp-jormuntide-surging-sea-serpent": 79.88,
+    "bp01-027-sp-jormuntide-surging-sea-serpent": 78.38,
     "bp01-028-pengullet-yearning-for-the-sky": 3.5,
     "bp01-029-azurobe-water-dragon-waltz": 3.44,
     "bp01-029-sr-azurobe-water-dragon-waltz": 9,
@@ -4546,8 +4546,8 @@
     "bp01-100-sr-the-adventure-begins": 9.49,
     "bp01-soul": 1740.35,
     "pr-003-blazehowl-hellflame-defender": 33.47,
-    "pr-007-digtoise-keen-needleback": 33.5,
-    "pr-009-loupmoon-glinting-moonlight": 40,
+    "pr-007-digtoise-keen-needleback": 29.99,
+    "pr-009-loupmoon-glinting-moonlight": 45,
     "promo-soul-003": 58.5,
     "promo-soul-005": 57.99,
     "promo-soul-008": 759.95,
@@ -4567,10 +4567,11 @@
     "td02-soul": 2.2,
     "td02-006-tsr-broncherry-brimming-adoration": 28.99,
     "td02-008-tsr-berry-plantation": 14.99,
-    "td02-012-tsp-astegon-aegis-wyvern-of-death": 185.48,
-    "esoul-002": 4950,
+    "td02-012-tsp-astegon-aegis-wyvern-of-death": 179.37,
+    "esoul-002": 4000,
     "esoul-001": 2,
     "esoul-003": 122.99,
-    "epr-001": 199.99
+    "epr-001": 199.99,
+    "td02-001-tsp-mossanda-guard-captain": 92.88
   }
 }

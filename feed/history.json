@@ -5338,7 +5338,7 @@
     "bp01-027-osr-jormuntide-surging-sea-serpent": 37.49,
     "bp01-027-sp-jormuntide-surging-sea-serpent": 76.87,
     "bp01-028-pengullet-yearning-for-the-sky": 3.5,
-    "bp01-029-azurobe-water-dragon-waltz": 3.19,
+    "bp01-029-azurobe-water-dragon-waltz": 3.24,
     "bp01-029-sr-azurobe-water-dragon-waltz": 9,
     "bp01-030-reptyro-cryst-glacial-devourer": 4.99,
     "bp01-032-fuack-manic-wave-ripper": 2.49,
@@ -5444,14 +5444,14 @@
     "td01-020-primitive-workbench": 1.99,
     "td01-023-tsr-lamball-my-first-pal": 35.23,
     "td02-soul": 2.2,
-    "td02-001-tsp-mossanda-guard-captain": 91.94,
+    "td02-001-tsp-mossanda-guard-captain": 91,
     "td02-006-tsr-broncherry-brimming-adoration": 28.99,
     "td02-008-tsr-berry-plantation": 14.3,
-    "td02-012-tsp-astegon-aegis-wyvern-of-death": 172.5,
+    "td02-012-tsp-astegon-aegis-wyvern-of-death": 172.25,
     "esoul-002": 3998,
     "esoul-000": 465,
     "esoul-001": 2,
-    "esoul-003": 120,
+    "esoul-003": 121.5,
     "epr-001": 199.99
   }
 }

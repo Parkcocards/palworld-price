@@ -8957,7 +8957,7 @@
     "bp01-099-direhowl-proud-fang": 1.39,
     "bp01-100-the-adventure-begins": 1.69,
     "bp01-100-sr-the-adventure-begins": 8.49,
-    "bp01-soul": 1555.55,
+    "bp01-soul": 1498.6,
     "pr-001-lamball-my-first-pal": 19.99,
     "pr-002-flambelle-scorching-tears": 29.99,
     "pr-003-blazehowl-hellflame-defender": 25.99,
@@ -8968,9 +8968,9 @@
     "pr-008-daedream-deep-slumber": 29.97,
     "pr-009-loupmoon-glinting-moonlight": 44.75,
     "pr-010-jormuntide-ignis-savage-lava-dragon": 2160.25,
-    "pr-011-lovander-heartstealer": 212.15,
+    "pr-011-lovander-heartstealer": 206.07,
     "promo-soul-000": 31.15,
-    "promo-soul-003": 60,
+    "promo-soul-003": 59.5,
     "promo-soul-005": 54.49,
     "promo-soul-008": 544.99,
     "td01-001-tsr-grizzbolt-rumbling-tank": 25.71,
@@ -8982,7 +8982,7 @@
     "td01-011-tsr-ignis-breath": 8,
     "td01-012-elphidran-aqua-gentle-ripples": 1.74,
     "td01-012-tsp-elphidran-aqua-gentle-ripples": 353.58,
-    "td01-012-tsr-elphidran-aqua-gentle-ripples": 29.99,
+    "td01-012-tsr-elphidran-aqua-gentle-ripples": 35,
     "td01-015-hangyu-cryst-frigid-wanderer": 1.75,
     "td01-017-suzaku-aqua-way-of-the-current": 1.89,
     "td01-018-mammorest-cryst-roar-of-the-tundra": 1.99,
@@ -8999,9 +8999,10 @@
     "td02-021-strike-from-the-darkness": 2.27,
     "td02-021-tsr-strike-from-the-darkness": 30,
     "td02-023-tsr-cattiva-my-first-pal": 37.49,
-    "esoul-002": 2300,
+    "esoul-002": 2275,
     "esoul-000": 250,
     "esoul-001": 1.98,
-    "esoul-003": 119.99
+    "esoul-003": 119.99,
+    "bp01-026-sp-relaxaurus-hungry-gunner": 79.88
   }
 }

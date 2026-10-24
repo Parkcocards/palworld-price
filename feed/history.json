@@ -9212,7 +9212,7 @@
     "bp01-027-osr-jormuntide-surging-sea-serpent": 35,
     "bp01-027-sp-jormuntide-surging-sea-serpent": 59.99,
     "bp01-028-pengullet-yearning-for-the-sky": 2.99,
-    "bp01-029-azurobe-water-dragon-waltz": 3.61,
+    "bp01-029-azurobe-water-dragon-waltz": 3.55,
     "bp01-029-sr-azurobe-water-dragon-waltz": 9,
     "bp01-030-reptyro-cryst-glacial-devourer": 1.12,
     "bp01-031-sr-penking-mighty-warrior-of-the-deep": 5.59,
@@ -9273,9 +9273,9 @@
     "bp01-075-katress-abyssal-sorcerer": 6.11,
     "bp01-075-osr-katress-abyssal-sorcerer": 15,
     "bp01-075-sp-katress-abyssal-sorcerer": 84.95,
-    "bp01-076-tombat-out-of-nowhere": 4.99,
+    "bp01-076-tombat-out-of-nowhere": 4.84,
     "bp01-076-sr-tombat-out-of-nowhere": 8,
-    "bp01-077-pyrin-noct-steed-of-azure-flames": 4,
+    "bp01-077-pyrin-noct-steed-of-azure-flames": 2.29,
     "bp01-078-lyleen-noct-providence-of-the-goddess": 3.5,
     "bp01-078-sr-lyleen-noct-providence-of-the-goddess": 5.49,
     "bp01-079-depresso-late-night-hustler": 2.38,
@@ -9326,7 +9326,7 @@
     "td01-011-ignis-breath": 1.99,
     "td01-011-tsr-ignis-breath": 6.5,
     "td01-012-tsp-elphidran-aqua-gentle-ripples": 286.99,
-    "td01-012-tsr-elphidran-aqua-gentle-ripples": 29.99,
+    "td01-012-tsr-elphidran-aqua-gentle-ripples": 24.99,
     "td01-015-hangyu-cryst-frigid-wanderer": 1.75,
     "td01-017-suzaku-aqua-way-of-the-current": 1.89,
     "td01-018-mammorest-cryst-roar-of-the-tundra": 1.99,
@@ -9340,7 +9340,7 @@
     "td02-005-eikthyrdeer-terra-guardian-of-nature": 1.98,
     "td02-006-tsr-broncherry-brimming-adoration": 7,
     "td02-008-tsr-berry-plantation": 8.99,
-    "td02-012-tsp-astegon-aegis-wyvern-of-death": 168.95,
+    "td02-012-tsp-astegon-aegis-wyvern-of-death": 168.68,
     "td02-017-blazehowl-noct-darkflame-defender": 1.98,
     "td02-019-hanging-trap": 1.75,
     "td02-021-strike-from-the-darkness": 2.63,
@@ -9349,6 +9349,6 @@
     "esoul-002": 2000,
     "esoul-000": 197.01,
     "esoul-001": 1.97,
-    "esoul-003": 99.99
+    "esoul-003": 95
   }
 }

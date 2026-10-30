@@ -9681,7 +9681,7 @@
     "bp01-044-sr-pengullet-rocket-launcher": 4.14,
     "bp01-045-grappling-gun": 1.98,
     "bp01-047-pal-sphere": 2,
-    "bp01-047-sr-pal-sphere": 5.08,
+    "bp01-047-sr-pal-sphere": 5,
     "bp01-048-aurora-guide": 1.99,
     "bp01-049-osr-lyleen-blessing-of-the-goddess": 24.99,
     "bp01-050-digtoise-seismic-drillback": 8.45,
@@ -9713,7 +9713,7 @@
     "bp01-069-farming-hat": 1.99,
     "bp01-071-found-an-egg": 1.99,
     "bp01-072-blessing-of-the-flower-spirit": 1.99,
-    "bp01-073-helzephyr-wings-of-the-moonless-night": 2.19,
+    "bp01-073-helzephyr-wings-of-the-moonless-night": 2.22,
     "bp01-073-osr-helzephyr-wings-of-the-moonless-night": 15.99,
     "bp01-073-ssp-helzephyr-wings-of-the-moonless-night": 140,
     "bp01-074-shadowbeak-seed-of-despair": 17.49,
@@ -9751,8 +9751,8 @@
     "bp01-099-direhowl-proud-fang": 1.4,
     "bp01-100-the-adventure-begins": 1.91,
     "bp01-100-sr-the-adventure-begins": 8.49,
-    "bp01-soul": 1400,
-    "bp02-001-orserk-thunderclap-roar": 18.55,
+    "bp01-soul": 1300,
+    "bp02-001-orserk-thunderclap-roar": 17.5,
     "pr-001-lamball-my-first-pal": 19.99,
     "pr-002-flambelle-scorching-tears": 19.99,
     "pr-003-blazehowl-hellflame-defender": 27.99,
@@ -9762,7 +9762,7 @@
     "pr-007-digtoise-keen-needleback": 26,
     "pr-008-daedream-deep-slumber": 29.99,
     "pr-009-loupmoon-glinting-moonlight": 31.39,
-    "pr-010-jormuntide-ignis-savage-lava-dragon": 1900,
+    "pr-010-jormuntide-ignis-savage-lava-dragon": 1800,
     "pr-011-lovander-heartstealer": 147.67,
     "pr-029-cattiva-my-first-pal": 45.36,
     "promo-soul-000": 68.89,
@@ -9803,6 +9803,7 @@
     "esoul-000": 196.84,
     "esoul-001": 1.97,
     "esoul-003": 99.99,
-    "bp02-054-quivern-botan-meadow-s-grace": 5
+    "bp02-054-quivern-botan-meadow-s-grace": 5,
+    "bp02-074-osr-selyne-saya-s-moonlit-beacon": 52.5
   }
 }

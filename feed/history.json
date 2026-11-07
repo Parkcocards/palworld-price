@@ -10365,7 +10365,7 @@
     "bp01-100-the-adventure-begins": 1.85,
     "bp01-100-sr-the-adventure-begins": 8.49,
     "bp01-soul": 1282.5,
-    "bp02-001-orserk-thunderclap-roar": 5.11,
+    "bp02-001-orserk-thunderclap-roar": 5,
     "bp02-001-osr-orserk-thunderclap-roar": 29.87,
     "bp02-003-osr-faleris-marcus-soaring-wings": 20.03,
     "bp02-004-sp-chillet-ignis-ember-clad-dragon": 93.61,
@@ -10381,7 +10381,7 @@
     "bp02-028-sibelyx-silken-spinner": 2.25,
     "bp02-031-broncherry-aqua-the-shape-of-love": 1.99,
     "bp02-039-antique-cabinet": 1.77,
-    "bp02-043-stun-baton": 4,
+    "bp02-043-stun-baton": 2.99,
     "bp02-047-love-overload": 2.49,
     "bp02-047-sr-love-overload": 5,
     "bp02-048-iceberg": 1.59,
@@ -10414,7 +10414,7 @@
     "promo-soul-003": 59.5,
     "promo-soul-005": 54.49,
     "promo-soul-008": 271.98,
-    "promo-soul-013": 62,
+    "promo-soul-013": 60.45,
     "td01-soul": 2.2,
     "td01-001-tsp-grizzbolt-rumbling-tank": 127,
     "td01-001-tsr-grizzbolt-rumbling-tank": 42.8,
@@ -10451,6 +10451,7 @@
     "esoul-002": 1365,
     "esoul-000": 163.48,
     "esoul-001": 1.97,
-    "esoul-003": 94.37
+    "esoul-003": 94.37,
+    "bp02-063-beware-of-mammorest-sign": 4.99
   }
 }

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-10T21:48:05.127Z",
+  "updated": "2026-11-11T05:01:15.875Z",
   "source": "Median of live eBay asking prices, one listing per seller. Card data from palworldtcg.gg.",
   "freshCount": 216,
   "cards": [
@@ -19,10 +19,10 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.7,
+      "d1": 0,
       "d3": 19.6,
-      "d7": 19.3,
-      "d30": 193
+      "d7": 19.2,
+      "d30": 95.9
     },
     {
       "id": "bp01-001-osr-jormuntide-ignis-savage-lava-dragon",
@@ -40,9 +40,9 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.7,
+      "d1": 0,
       "d3": 0.7,
-      "d7": 0.3,
+      "d7": 0.2,
       "d30": -10.4
     },
     {
@@ -53,18 +53,18 @@
       "rarity": "SSP",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-001-ssp-jormuntide-ignis-savage-lava-dragon.webp?v=1783622884",
-      "price": 264.94,
+      "price": 253.7,
       "low": 143.99,
       "high": 385,
-      "count": 13,
-      "sellers": 15,
+      "count": 12,
+      "sellers": 14,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 4.9,
-      "d3": 4.9,
-      "d7": 0,
-      "d30": -30.3
+      "d1": -4.2,
+      "d3": 0.4,
+      "d7": -9.4,
+      "d30": -33.2
     },
     {
       "id": "bp01-002-suzaku-hellfire-wings",
@@ -187,10 +187,10 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.9,
+      "d1": 0,
       "d3": -71.6,
       "d7": -71.6,
-      "d30": 0
+      "d30": -71.6
     },
     {
       "id": "bp01-004-sr-bushi-ephemeral-blade",
@@ -232,7 +232,7 @@
       "d1": 0,
       "d3": 3.6,
       "d7": 62.9,
-      "d30": 60.9
+      "d30": 33.9
     },
     {
       "id": "bp01-006-foxparks-light-of-courage",
@@ -440,9 +440,9 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -0.3,
+      "d3": 0,
       "d7": -0.3,
-      "d30": -0.3
+      "d30": 167
     },
     {
       "id": "bp01-015-sp-mounted-machine-gun",
@@ -460,9 +460,9 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.3,
+      "d1": 0,
       "d3": 7.7,
-      "d7": 7.3,
+      "d7": 7.2,
       "d30": 80
     },
     {
@@ -476,8 +476,8 @@
       "price": 2,
       "low": 0.89,
       "high": 3.9,
-      "count": 11,
-      "sellers": 11,
+      "count": 12,
+      "sellers": 12,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
@@ -589,7 +589,7 @@
       "d1": 0,
       "d3": 24.7,
       "d7": 106.3,
-      "d30": 173.2
+      "d30": 106.3
     },
     {
       "id": "bp01-021-makeshift-handgun",
@@ -672,7 +672,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 6.6,
-      "d7": -0.6,
+      "d7": -3.9,
       "d30": 0.7
     },
     {
@@ -691,7 +691,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 9.2,
+      "d1": 0,
       "d3": 0,
       "d7": 0,
       "d30": 4
@@ -715,7 +715,7 @@
       "d1": 0,
       "d3": 0,
       "d7": -2,
-      "d30": 5.4
+      "d30": 2.1
     },
     {
       "id": "bp01-026-osr-relaxaurus-hungry-gunner",
@@ -736,7 +736,7 @@
       "d1": 0,
       "d3": 2.5,
       "d7": 2.5,
-      "d30": 1
+      "d30": 0
     },
     {
       "id": "bp01-026-sp-relaxaurus-hungry-gunner",
@@ -799,7 +799,7 @@
       "d1": 0,
       "d3": 0,
       "d7": 0,
-      "d30": -12.3
+      "d30": 0
     },
     {
       "id": "bp01-028-pengullet-yearning-for-the-sky",
@@ -816,11 +816,11 @@
       "sellers": 3,
       "provisional": true,
       "stale": true,
-      "staleDays": 5,
+      "staleDays": 6,
       "d1": 0,
       "d3": 0,
       "d7": 0,
-      "d30": null
+      "d30": 0
     },
     {
       "id": "bp01-029-azurobe-water-dragon-waltz",
@@ -830,18 +830,18 @@
       "rarity": "R",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-029-azurobe-water-dragon-waltz.webp?v=1783622888",
-      "price": 3.49,
+      "price": 3.5,
       "low": 1.49,
-      "high": 6.99,
-      "count": 17,
-      "sellers": 21,
+      "high": 7,
+      "count": 18,
+      "sellers": 22,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0,
-      "d3": -0.3,
-      "d7": -0.3,
-      "d30": 7.7
+      "d1": 0.3,
+      "d3": 0,
+      "d7": 0,
+      "d30": 0.3
     },
     {
       "id": "bp01-029-sr-azurobe-water-dragon-waltz",
@@ -859,10 +859,10 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.1,
+      "d1": 0,
       "d3": 0.1,
-      "d7": -0.5,
-      "d30": -2.8
+      "d7": -0.3,
+      "d30": 3.9
     },
     {
       "id": "bp01-030-reptyro-cryst-glacial-devourer",
@@ -901,9 +901,9 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.7,
+      "d1": 0,
       "d3": 0.7,
-      "d7": 0.4,
+      "d7": 0.2,
       "d30": 0.2
     },
     {
@@ -922,7 +922,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -20.1,
+      "d1": 0,
       "d3": -20.1,
       "d7": -20.1,
       "d30": -20.1
@@ -1072,7 +1072,7 @@
       "d1": 0,
       "d3": 0,
       "d7": 0,
-      "d30": -40.1
+      "d30": -24.7
     },
     {
       "id": "bp01-040-antique-dresser",
@@ -1175,7 +1175,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -8.2,
+      "d3": 0,
       "d7": -15,
       "d30": -15
     },
@@ -1216,10 +1216,10 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -4.1,
+      "d1": 0,
       "d3": -4.1,
       "d7": -2.1,
-      "d30": -5
+      "d30": -4.5
     },
     {
       "id": "bp01-047-pal-sphere",
@@ -1259,8 +1259,8 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -3.4,
-      "d7": -4.9,
+      "d3": 0,
+      "d7": -3.4,
       "d30": -31
     },
     {
@@ -1279,7 +1279,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -0.5,
+      "d1": 0,
       "d3": -0.5,
       "d7": 0,
       "d30": -0.5
@@ -1300,9 +1300,9 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.7,
+      "d1": 0,
       "d3": 0.7,
-      "d7": null,
+      "d7": 0.1,
       "d30": null
     },
     {
@@ -1334,18 +1334,18 @@
       "rarity": "RR",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-050-digtoise-seismic-drillback.webp",
-      "price": 4.99,
-      "low": 2.23,
-      "high": 10,
+      "price": 6.91,
+      "low": 2.77,
+      "high": 13.28,
       "count": 11,
-      "sellers": 15,
+      "sellers": 16,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0,
-      "d3": -36.9,
-      "d7": -36.9,
-      "d30": -43.2
+      "d1": 38.5,
+      "d3": 0,
+      "d7": -12.6,
+      "d30": -21.4
     },
     {
       "id": "bp01-050-osr-digtoise-seismic-drillback",
@@ -1384,9 +1384,9 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.4,
+      "d1": 0,
       "d3": 0.4,
-      "d7": 0.2,
+      "d7": 0.1,
       "d30": 0.1
     },
     {
@@ -1447,9 +1447,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.2,
+      "d1": 0,
       "d3": 0.2,
-      "d7": 0.2,
+      "d7": 0,
       "d30": 6
     },
     {
@@ -1534,7 +1534,7 @@
       "d1": 0,
       "d3": -17.9,
       "d7": -17.9,
-      "d30": -17.9
+      "d30": -32.2
     },
     {
       "id": "bp01-054-sr-warsect-iron-fortress",
@@ -1551,11 +1551,11 @@
       "sellers": 3,
       "provisional": true,
       "stale": true,
-      "staleDays": 5,
+      "staleDays": 6,
       "d1": 0,
       "d3": 0,
       "d7": 0,
-      "d30": -10
+      "d30": -27.5
     },
     {
       "id": "bp01-055-vaelet-bewitching-blossom",
@@ -1615,9 +1615,9 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.7,
+      "d1": 0,
       "d3": 0.7,
-      "d7": 0.4,
+      "d7": 0.2,
       "d30": 0.2
     },
     {
@@ -1657,10 +1657,10 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.6,
+      "d1": 0,
       "d3": 15.4,
       "d7": 15.4,
-      "d30": 0.9
+      "d30": 15.4
     },
     {
       "id": "bp01-059-digtoise-keen-needleback",
@@ -1733,18 +1733,18 @@
       "rarity": "C",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-062-wumpo-botan-tropical-sentinel.webp?v=1783622942",
-      "price": 1.97,
+      "price": 1.98,
       "low": 0.89,
       "high": 3.9,
-      "count": 17,
-      "sellers": 17,
+      "count": 18,
+      "sellers": 18,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0,
-      "d3": -0.5,
-      "d7": 0,
-      "d30": -1
+      "d1": 0.5,
+      "d3": 0.5,
+      "d7": 0.5,
+      "d30": -0.5
     },
     {
       "id": "bp01-063-breeding-farm",
@@ -1764,8 +1764,8 @@
       "staleDays": 0,
       "d1": 0,
       "d3": -5.3,
-      "d7": -5.3,
-      "d30": -7
+      "d7": 0,
+      "d30": -11.3
     },
     {
       "id": "bp01-063-sr-breeding-farm",
@@ -1786,7 +1786,7 @@
       "d1": 0,
       "d3": -10,
       "d7": -10.2,
-      "d30": -22.7
+      "d30": -10.2
     },
     {
       "id": "bp01-064-cola-vending-machine",
@@ -1943,18 +1943,18 @@
       "rarity": "C",
       "type": "Event",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-072-blessing-of-the-flower-spirit.webp?v=1783622904",
-      "price": 1.99,
+      "price": 1.94,
       "low": 0.89,
       "high": 2.99,
-      "count": 11,
-      "sellers": 12,
+      "count": 12,
+      "sellers": 13,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 2.6,
-      "d3": 2.6,
-      "d7": 0,
-      "d30": 0
+      "d1": -2.5,
+      "d3": 0,
+      "d7": -2.5,
+      "d30": -2.5
     },
     {
       "id": "bp01-073-helzephyr-wings-of-the-moonless-night",
@@ -2038,7 +2038,7 @@
       "d1": 0,
       "d3": 0,
       "d7": 0,
-      "d30": 16.6
+      "d30": 0
     },
     {
       "id": "bp01-074-osr-shadowbeak-seed-of-despair",
@@ -2050,7 +2050,7 @@
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-074-osr-shadowbeak-seed-of-despair.webp",
       "price": 17.88,
       "low": 8.99,
-      "high": 34.47,
+      "high": 38.3,
       "count": 3,
       "sellers": 3,
       "provisional": true,
@@ -2058,7 +2058,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": -5.5,
+      "d7": 0,
       "d30": -5.5
     },
     {
@@ -2162,7 +2162,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -0.2,
+      "d3": 0,
       "d7": -0.2,
       "d30": 0
     },
@@ -2227,7 +2227,7 @@
       "d1": 0,
       "d3": 7.1,
       "d7": 7.1,
-      "d30": 0
+      "d30": 7.1
     },
     {
       "id": "bp01-078-sr-lyleen-noct-providence-of-the-goddess",
@@ -2244,10 +2244,10 @@
       "sellers": 3,
       "provisional": true,
       "stale": true,
-      "staleDays": 5,
+      "staleDays": 6,
       "d1": 0,
       "d3": 0,
-      "d7": -10,
+      "d7": 0,
       "d30": -18.2
     },
     {
@@ -2352,7 +2352,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": -0.9,
+      "d7": -0.8,
       "d30": 1
     },
     {
@@ -2374,7 +2374,7 @@
       "d1": 0,
       "d3": -11.2,
       "d7": -11.2,
-      "d30": -5.2
+      "d30": -9.5
     },
     {
       "id": "bp01-083-vanwyrm-marauder-of-the-skies",
@@ -2437,7 +2437,7 @@
       "d1": 0,
       "d3": 6.4,
       "d7": 6.4,
-      "d30": 0.4
+      "d30": 6.4
     },
     {
       "id": "bp01-086-nox-the-silent-one",
@@ -2573,18 +2573,18 @@
       "rarity": "C",
       "type": "Structure",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp01-092-viewing-cage.webp",
-      "price": 1.93,
+      "price": 1.89,
       "low": 0.89,
       "high": 2.99,
-      "count": 16,
-      "sellers": 16,
+      "count": 17,
+      "sellers": 17,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 2.1,
-      "d3": 2.1,
-      "d7": 0,
-      "d30": 0
+      "d1": -2.1,
+      "d3": 0,
+      "d7": -2.1,
+      "d30": -2.1
     },
     {
       "id": "bp01-093-meat-cleaver",
@@ -2624,7 +2624,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 1.8,
+      "d3": 0,
       "d7": 1.8,
       "d30": 7.8
     },
@@ -2647,7 +2647,7 @@
       "d1": 0,
       "d3": 0,
       "d7": 0,
-      "d30": -2.1
+      "d30": -4.5
     },
     {
       "id": "bp01-097-black-marketeer",
@@ -2772,7 +2772,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": -6.4,
-      "d7": -13,
+      "d7": -12.1,
       "d30": -23.8
     },
     {
@@ -2793,7 +2793,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": -12.1,
+      "d7": 0,
       "d30": null
     },
     {
@@ -2813,8 +2813,8 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -9.6,
-      "d7": -15.6,
+      "d3": -3.6,
+      "d7": -10,
       "d30": null
     },
     {
@@ -2833,7 +2833,7 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.6,
+      "d1": 0,
       "d3": 0.6,
       "d7": null,
       "d30": null
@@ -2846,17 +2846,17 @@
       "rarity": "SP",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp02-004-sp-chillet-ignis-ember-clad-dragon.webp",
-      "price": 101.88,
+      "price": 105.54,
       "low": 79.99,
       "high": 219,
-      "count": 6,
-      "sellers": 6,
+      "count": 5,
+      "sellers": 5,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0,
-      "d3": 0,
-      "d7": -7.4,
+      "d1": 3.6,
+      "d3": 3.6,
+      "d7": 7.5,
       "d30": null
     },
     {
@@ -2873,8 +2873,8 @@
       "count": 3,
       "sellers": 3,
       "provisional": true,
-      "stale": true,
-      "staleDays": 1,
+      "stale": false,
+      "staleDays": 0,
       "d1": 0,
       "d3": -20,
       "d7": -20,
@@ -2897,7 +2897,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -5.3,
+      "d3": 0,
       "d7": 0,
       "d30": null
     },
@@ -2938,7 +2938,7 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": null,
+      "d1": 0,
       "d3": null,
       "d7": null,
       "d30": null
@@ -2954,14 +2954,14 @@
       "price": 2.09,
       "low": 0.99,
       "high": 5.02,
-      "count": 7,
-      "sellers": 7,
+      "count": 6,
+      "sellers": 6,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": -39.2,
+      "d7": 0,
       "d30": null
     },
     {
@@ -3022,8 +3022,8 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 6.7,
-      "d3": 14.3,
+      "d1": 0,
+      "d3": 6.7,
       "d7": -43,
       "d30": null
     },
@@ -3043,7 +3043,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -10.4,
+      "d1": 0,
       "d3": -10.4,
       "d7": -18.4,
       "d30": null
@@ -3085,7 +3085,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -6.1,
+      "d1": 0,
       "d3": -11.1,
       "d7": -11.1,
       "d30": null
@@ -3106,8 +3106,8 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 14.4,
-      "d3": 0,
+      "d1": 0,
+      "d3": 14.4,
       "d7": null,
       "d30": null
     },
@@ -3129,7 +3129,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": -44.5,
+      "d7": 1.1,
       "d30": null
     },
     {
@@ -3150,7 +3150,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": -37.6,
+      "d7": -25.2,
       "d30": null
     },
     {
@@ -3169,9 +3169,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -28.1,
+      "d1": 0,
       "d3": -28.1,
-      "d7": -52.9,
+      "d7": -28.1,
       "d30": null
     },
     {
@@ -3191,8 +3191,8 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -30.2,
-      "d7": -46.3,
+      "d3": -12.5,
+      "d7": -30.2,
       "d30": null
     },
     {
@@ -3211,7 +3211,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -0.6,
+      "d1": 0,
       "d3": -0.6,
       "d7": -0.6,
       "d30": null
@@ -3232,9 +3232,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -1.2,
+      "d1": 0,
       "d3": 2,
-      "d7": 0,
+      "d7": -2.4,
       "d30": null
     },
     {
@@ -3253,9 +3253,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 26.8,
+      "d1": 0,
       "d3": 7.7,
-      "d7": -6.4,
+      "d7": 0,
       "d30": null
     },
     {
@@ -3274,7 +3274,7 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 12.5,
+      "d1": 0,
       "d3": 12.5,
       "d7": 19,
       "d30": null
@@ -3339,7 +3339,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": null,
+      "d7": 0,
       "d30": null
     },
     {
@@ -3356,8 +3356,8 @@
       "count": 3,
       "sellers": 3,
       "provisional": true,
-      "stale": false,
-      "staleDays": 0,
+      "stale": true,
+      "staleDays": 1,
       "d1": 0,
       "d3": 0,
       "d7": -0.6,
@@ -3380,8 +3380,8 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 0,
-      "d7": null,
+      "d3": -16.7,
+      "d7": 0,
       "d30": null
     },
     {
@@ -3392,17 +3392,17 @@
       "rarity": "SSP",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp02-073-ssp-frostallion-noct-eternal-darkness.webp?v=1792988494",
-      "price": 200,
+      "price": 180,
       "low": 94.99,
       "high": 300,
-      "count": 5,
-      "sellers": 5,
+      "count": 6,
+      "sellers": 6,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0,
-      "d3": -16.7,
-      "d7": -42.9,
+      "d1": -10,
+      "d3": -25,
+      "d7": -37.4,
       "d30": null
     },
     {
@@ -3413,17 +3413,17 @@
       "rarity": "OSR",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/bp02-074-osr-selyne-saya-s-moonlit-beacon.webp",
-      "price": 22.49,
+      "price": 19.99,
       "low": 18,
       "high": 39.99,
-      "count": 4,
-      "sellers": 4,
-      "provisional": true,
+      "count": 5,
+      "sellers": 5,
+      "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0,
-      "d3": 0,
-      "d7": 0,
+      "d1": -11.1,
+      "d3": -11.1,
+      "d7": -0.1,
       "d30": null
     },
     {
@@ -3527,7 +3527,7 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": null,
+      "d3": -12.5,
       "d7": null,
       "d30": null
     },
@@ -3549,7 +3549,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": 8.5,
+      "d7": 0,
       "d30": null
     },
     {
@@ -3568,9 +3568,9 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": -35.8,
-      "d3": -20.3,
-      "d7": null,
+      "d1": 0,
+      "d3": -37,
+      "d7": -49.8,
       "d30": null
     },
     {
@@ -3589,10 +3589,10 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.1,
+      "d1": 0,
       "d3": 0.1,
       "d7": 0.1,
-      "d30": -33.3
+      "d30": -27.3
     },
     {
       "id": "pr-002-flambelle-scorching-tears",
@@ -3610,9 +3610,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.4,
+      "d1": 0,
       "d3": 0.4,
-      "d7": 0.2,
+      "d7": 0.1,
       "d30": -39.8
     },
     {
@@ -3652,7 +3652,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 11.1,
+      "d1": 0,
       "d3": 11.1,
       "d7": 0,
       "d30": -16.7
@@ -3736,9 +3736,9 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 6.3,
+      "d1": 0,
       "d3": 6.3,
-      "d7": 13.4,
+      "d7": 5.8,
       "d30": 13.4
     },
     {
@@ -3757,7 +3757,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 4.7,
+      "d1": 0,
       "d3": 4.7,
       "d7": 0,
       "d30": -29.5
@@ -3770,18 +3770,18 @@
       "rarity": "PR",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/pr-010-jormuntide-ignis-savage-lava-dragon.webp",
-      "price": 1458.32,
+      "price": 1635.4,
       "low": 1097.89,
-      "high": 2200,
+      "high": 4000,
       "count": 8,
-      "sellers": 9,
+      "sellers": 8,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 12.3,
-      "d3": 4.2,
-      "d7": -1.1,
-      "d30": -45
+      "d1": 12.1,
+      "d3": 25.9,
+      "d7": 2.2,
+      "d30": -34.6
     },
     {
       "id": "pr-011-lovander-heartstealer",
@@ -3799,10 +3799,10 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 7.4,
-      "d3": -7.1,
-      "d7": -25.2,
-      "d30": -67.6
+      "d1": 0,
+      "d3": 7.4,
+      "d7": -24.7,
+      "d30": -62
     },
     {
       "id": "pr-029-cattiva-my-first-pal",
@@ -3812,17 +3812,17 @@
       "rarity": "PR",
       "type": "Pal",
       "img": "https://palworldtcg.gg/img/card-thumbnails/pr-029-cattiva-my-first-pal.webp",
-      "price": 45.19,
+      "price": 45.36,
       "low": 29.99,
       "high": 104.99,
-      "count": 27,
-      "sellers": 27,
+      "count": 26,
+      "sellers": 26,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -0.4,
-      "d3": 0,
-      "d7": -0.4,
+      "d1": 0.4,
+      "d3": 0.4,
+      "d7": 0.4,
       "d30": null
     },
     {
@@ -3843,7 +3843,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": 56.6,
+      "d7": 0,
       "d30": 122.7
     },
     {
@@ -3864,7 +3864,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": 0.9,
+      "d7": 0,
       "d30": 0
     },
     {
@@ -3904,10 +3904,10 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 14,
+      "d1": 0,
       "d3": 14,
-      "d7": -19.3,
-      "d30": -44.6
+      "d7": -16.6,
+      "d30": -43.9
     },
     {
       "id": "promo-soul-013",
@@ -3918,16 +3918,16 @@
       "type": "Soul",
       "img": "https://palworldtcg.gg/img/card-thumbnails/promo-soul-013.webp",
       "price": 56.08,
-      "low": 44.78,
+      "low": 39.5,
       "high": 88.85,
       "count": 25,
       "sellers": 27,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": -9.5,
+      "d1": 0,
       "d3": -7.2,
-      "d7": -12.1,
+      "d7": -10.8,
       "d30": null
     },
     {
@@ -3948,7 +3948,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": null,
+      "d7": 0,
       "d30": null
     },
     {
@@ -3967,7 +3967,7 @@
       "provisional": true,
       "stale": false,
       "staleDays": 0,
-      "d1": 16.9,
+      "d1": 0,
       "d3": 16.9,
       "d7": 16.9,
       "d30": null
@@ -3984,7 +3984,7 @@
       "low": 0.99,
       "high": 2.28,
       "count": 4,
-      "sellers": 5,
+      "sellers": 4,
       "provisional": true,
       "stale": false,
       "staleDays": 0,
@@ -4114,7 +4114,7 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 0.2,
+      "d1": 0,
       "d3": 0.2,
       "d7": 0.2,
       "d30": 0
@@ -4214,15 +4214,15 @@
       "price": 1.75,
       "low": 0.99,
       "high": 2.25,
-      "count": 7,
-      "sellers": 7,
+      "count": 8,
+      "sellers": 8,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 4.8,
+      "d1": 0,
       "d3": 4.8,
       "d7": -2.2,
-      "d30": 0.6
+      "d30": -9.8
     },
     {
       "id": "td01-020-primitive-workbench",
@@ -4232,18 +4232,18 @@
       "rarity": "TD",
       "type": "Structure",
       "img": "https://palworldtcg.gg/img/card-thumbnails/td01-020-primitive-workbench.webp?v=1783622923",
-      "price": 1.75,
+      "price": 1.84,
       "low": 0.99,
       "high": 2.25,
-      "count": 5,
-      "sellers": 5,
+      "count": 6,
+      "sellers": 6,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 4.8,
-      "d3": 4.8,
-      "d7": -2.2,
-      "d30": -7.9
+      "d1": 5.1,
+      "d3": 10.2,
+      "d7": 2.8,
+      "d30": -12.4
     },
     {
       "id": "td01-022-crystal-breath",
@@ -4305,7 +4305,7 @@
       "staleDays": 0,
       "d1": 0,
       "d3": 0,
-      "d7": null,
+      "d7": 0,
       "d30": null
     },
     {
@@ -4409,9 +4409,9 @@
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": -0.9,
+      "d3": 0,
       "d7": -5.9,
-      "d30": -6.3
+      "d30": -6
     },
     {
       "id": "td02-017-blazehowl-noct-darkflame-defender",
@@ -4555,10 +4555,10 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 6,
-      "d3": -8,
-      "d7": -9.1,
-      "d30": -44.7
+      "d1": 0,
+      "d3": -5.8,
+      "d7": -6.9,
+      "d30": -43.5
     },
     {
       "id": "esoul-000",
@@ -4576,10 +4576,10 @@
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 8.3,
+      "d1": 0,
       "d3": 8.3,
-      "d7": -5.5,
-      "d30": -29.2
+      "d7": 7.8,
+      "d30": -9.4
     },
     {
       "id": "esoul-001",
@@ -4589,18 +4589,18 @@
       "rarity": "TD",
       "type": "Soul",
       "img": "https://i.ebayimg.com/images/g/uKoAAeSwDtpqySie/s-l225.jpg",
-      "price": 1.97,
-      "low": 0.99,
+      "price": 1.49,
+      "low": 0.71,
       "high": 2.43,
-      "count": 5,
-      "sellers": 7,
+      "count": 7,
+      "sellers": 8,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
-      "d1": 97,
-      "d3": 97,
-      "d7": 0,
-      "d30": -0.5
+      "d1": -24.4,
+      "d3": 49,
+      "d7": -24.4,
+      "d30": -24.7
     },
     {
       "id": "esoul-003",
@@ -4609,18 +4609,18 @@
       "num": "ESOUL-003",
       "rarity": "TD",
       "type": "Soul",
-      "img": "https://i.ebayimg.com/images/g/eM4AAeSwHxVq3p5~/s-l225.jpg",
+      "img": "https://i.ebayimg.com/images/g/AisAAeSw32Nqo-Rt/s-l225.jpg",
       "price": 95,
       "low": 42.65,
       "high": 209.99,
-      "count": 67,
+      "count": 66,
       "sellers": 72,
       "provisional": false,
       "stale": false,
       "staleDays": 0,
       "d1": 0,
-      "d3": 0.7,
-      "d7": 0.5,
+      "d3": 0,
+      "d7": 0.4,
       "d30": -20.8
     }
   ]

@@ -10790,7 +10790,7 @@
     "bp01-075-katress-abyssal-sorcerer": 6.55,
     "bp01-075-osr-katress-abyssal-sorcerer": 15,
     "bp01-075-sp-katress-abyssal-sorcerer": 113.99,
-    "bp01-076-tombat-out-of-nowhere": 4.99,
+    "bp01-076-tombat-out-of-nowhere": 4.84,
     "bp01-076-sr-tombat-out-of-nowhere": 9,
     "bp01-077-pyrin-noct-steed-of-azure-flames": 2.4,
     "bp01-078-lyleen-noct-providence-of-the-goddess": 3.5,
@@ -10848,7 +10848,7 @@
     "bp02-063-beware-of-mammorest-sign": 3.99,
     "bp02-063-sr-beware-of-mammorest-sign": 4.99,
     "bp02-073-frostallion-noct-eternal-darkness": 4.99,
-    "bp02-073-ssp-frostallion-noct-eternal-darkness": 180,
+    "bp02-073-ssp-frostallion-noct-eternal-darkness": 160,
     "bp02-074-osr-selyne-saya-s-moonlit-beacon": 19.99,
     "bp02-087-electric-medicine-workbench": 1.84,
     "bp02-092-frostallion-noct-saddle": 1.39,
@@ -10866,7 +10866,7 @@
     "pr-008-daedream-deep-slumber": 33.67,
     "pr-009-loupmoon-glinting-moonlight": 32.8,
     "pr-010-jormuntide-ignis-savage-lava-dragon": 1776.76,
-    "pr-011-lovander-heartstealer": 96.69,
+    "pr-011-lovander-heartstealer": 89.99,
     "pr-026-seed-machine-gun": 35,
     "pr-027-mau-greed-beckons": 22.14,
     "pr-029-cattiva-my-first-pal": 45.36,
@@ -10909,6 +10909,7 @@
     "esoul-001": 1.49,
     "esoul-003": 95,
     "bp02-016-coal-quarry": 1.78,
-    "bp02-072-seed-machine-gun": 1.79
+    "bp02-072-seed-machine-gun": 1.79,
+    "bp02-084-killamari-abyssal-terror": 1.58
   }
 }

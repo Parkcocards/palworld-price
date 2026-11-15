@@ -10853,7 +10853,7 @@
   "2026-11-15": {
     "bp01-001-jormuntide-ignis-savage-lava-dragon": 7.76,
     "bp01-001-osr-jormuntide-ignis-savage-lava-dragon": 25.71,
-    "bp01-001-ssp-jormuntide-ignis-savage-lava-dragon": 233.51,
+    "bp01-001-ssp-jormuntide-ignis-savage-lava-dragon": 229.99,
     "bp01-002-suzaku-hellfire-wings": 4.39,
     "bp01-002-osr-suzaku-hellfire-wings": 8.69,
     "bp01-002-sp-suzaku-hellfire-wings": 49.99,
@@ -10885,13 +10885,13 @@
     "bp01-025-osr-chillet-dragon-whisperer": 39.82,
     "bp01-025-ssp-chillet-dragon-whisperer": 433,
     "bp01-026-relaxaurus-hungry-gunner": 9.99,
-    "bp01-026-osr-relaxaurus-hungry-gunner": 30.74,
+    "bp01-026-osr-relaxaurus-hungry-gunner": 29.99,
     "bp01-026-sp-relaxaurus-hungry-gunner": 79.88,
     "bp01-027-osr-jormuntide-surging-sea-serpent": 35,
     "bp01-027-sp-jormuntide-surging-sea-serpent": 59.99,
     "bp01-028-pengullet-yearning-for-the-sky": 2.99,
-    "bp01-029-azurobe-water-dragon-waltz": 3.29,
-    "bp01-029-sr-azurobe-water-dragon-waltz": 8.99,
+    "bp01-029-azurobe-water-dragon-waltz": 3.08,
+    "bp01-029-sr-azurobe-water-dragon-waltz": 8.7,
     "bp01-030-reptyro-cryst-glacial-devourer": 1.2,
     "bp01-031-sr-penking-mighty-warrior-of-the-deep": 5.5,
     "bp01-032-fuack-manic-wave-ripper": 1.99,
@@ -10981,7 +10981,7 @@
     "bp01-099-direhowl-proud-fang": 1.31,
     "bp01-100-the-adventure-begins": 1.74,
     "bp01-100-sr-the-adventure-begins": 8.49,
-    "bp01-soul": 1203.63,
+    "bp01-soul": 1199.98,
     "bp02-001-orserk-thunderclap-roar": 5,
     "bp02-001-osr-orserk-thunderclap-roar": 27.25,
     "bp02-001-ssp-orserk-thunderclap-roar": 225,
@@ -11058,7 +11058,7 @@
     "td01-022-crystal-breath": 1.87,
     "td01-023-tsr-lamball-my-first-pal": 25,
     "td02-soul": 2.2,
-    "td02-001-tsp-mossanda-guard-captain": 91,
+    "td02-001-tsp-mossanda-guard-captain": 89.94,
     "td02-005-eikthyrdeer-terra-guardian-of-nature": 1.98,
     "td02-006-tsr-broncherry-brimming-adoration": 13.14,
     "td02-008-tsr-berry-plantation": 8.99,
@@ -11073,6 +11073,7 @@
     "esoul-002": 1249.99,
     "esoul-000": 175.19,
     "esoul-001": 1.49,
-    "esoul-003": 95
+    "esoul-003": 95,
+    "bp02-053-sr-dumud-bountiful-earth": 1.29
   }
 }
